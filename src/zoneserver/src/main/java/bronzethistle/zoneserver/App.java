@@ -45,7 +45,7 @@ public class App {
 
     private static App instance;
 
-    public static final App getInstance() { return instance; }
+    public static App getInstance() { return instance; }
 
     private AbstractApplicationContext applicationContext;
     private boolean running = false;
@@ -87,6 +87,7 @@ public class App {
         if (logToConsole) {
             try {
                 Log4jConfigurer.initLogging(CONSOLE_LOGGER_CONFIG);
+                log.info("Logging to console...");
             } catch (Throwable t) {
                 throw new RuntimeException("Unable to initialize logging", t);
             }
