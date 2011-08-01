@@ -1,4 +1,4 @@
-package bronzethistle;
+package bronzethistle.client;
 
 /**
  * Hello world!
