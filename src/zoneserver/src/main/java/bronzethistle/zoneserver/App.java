@@ -32,11 +32,7 @@ public class App {
     private static final String FILE_LOGGER_CONFIG = "file:${bronzethistle-zoneserver.home}/conf/log4j.xml";
 
     private static final String[] APPLICATION_PACKAGES = {
-            // TODO
-//    	"genesis.event.queue",
-//    	"genesis.server.zone",
-//    	"genesis.codec",
-//    	"genesis.message"
+//            "bronzethistle.zoneserver",
     };
 
     private static final String[] CONFIGURATIONS = {
