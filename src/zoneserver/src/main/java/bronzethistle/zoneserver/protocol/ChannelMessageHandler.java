@@ -7,6 +7,7 @@ import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 
 /**
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Elvir
  */
+@Component
 public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     private static final Logger logger = LoggerFactory.getLogger(ChannelMessageHandler.class);
 
