@@ -1,23 +1,14 @@
 package bronzethistle.zoneserver;
 
 public class ClientMessage {
-    private long objectId;
-    private byte[] messageContent;
+    private final String rawMessage;
 
-    public ClientMessage(byte[] messageContent) {
-        this(0, messageContent);
+    public ClientMessage(String rawMessage) {
+        this.rawMessage = rawMessage;
     }
 
-    public ClientMessage(long objectId, byte[] messageContent) {
-        this.objectId =  objectId;
-        this.messageContent = messageContent;
-    }
-
-    public long getObjectId() {
-        return objectId;
-    }
-
-    public byte[] getMessageContent() {
-        return messageContent;
+    @Override
+    public String toString() {
+        return rawMessage;
     }
 }

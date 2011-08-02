@@ -1,8 +1,8 @@
 package bronzethistle.zoneserver.config;
 
 import bronzethistle.zoneserver.protocol.ChannelMessageHandler;
-import bronzethistle.zoneserver.protocol.MappingProtobufDecoder;
-import bronzethistle.zoneserver.protocol.MappingProtobufEncoder;
+import bronzethistle.zoneserver.protocol.SimpleStringDecoder;
+import bronzethistle.zoneserver.protocol.SimpleStringEncoder;
 import com.google.common.base.Strings;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.Channel;
@@ -51,10 +51,10 @@ public class SocketServerConfiguration {
             protected ApplicationContext applicationContext = null;
 
             @Autowired
-            protected MappingProtobufDecoder mappingDecoder = null;
+            protected SimpleStringDecoder mappingDecoder = null;
 
             @Autowired
-            protected MappingProtobufEncoder mappingEncoder = null;
+            protected SimpleStringEncoder mappingEncoder = null;
 
             @Autowired
             protected ChannelMessageHandler eventHandler = null;
@@ -69,9 +69,9 @@ public class SocketServerConfiguration {
                 }
 
                 // Add the protocol codec first
-                pipeline.addLast(applicationContext.getBeanNamesForType(MappingProtobufDecoder.class)[0], mappingDecoder);
+                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringDecoder.class)[0], mappingDecoder);
 
-                pipeline.addLast(applicationContext.getBeanNamesForType(MappingProtobufEncoder.class)[0], mappingEncoder);
+                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringEncoder.class)[0], mappingEncoder);
 
                 pipeline.addLast("handler", eventHandler);
 

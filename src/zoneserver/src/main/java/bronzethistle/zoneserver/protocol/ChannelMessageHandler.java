@@ -1,5 +1,6 @@
 package bronzethistle.zoneserver.protocol;
 
+import bronzethistle.zoneserver.ClientMessage;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -21,7 +22,7 @@ public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
-        logger.info("msg rec'd");
+        logger.info("msg rec'd: " + e.getMessage().toString());
 //        Client client = clientDao.getClientByChannel(e.getChannel());
 //        client.handleClientMessage((ClientMessage) e.getMessage());
     }
