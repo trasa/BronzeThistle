@@ -1,6 +1,8 @@
 package bronzethistle.zoneserver.protocol;
 
+import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.ClientMessage;
+import bronzethistle.zoneserver.dao.ClientDao;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -8,6 +10,7 @@ import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -20,11 +23,14 @@ import org.springframework.stereotype.Component;
 public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     private static final Logger logger = LoggerFactory.getLogger(ChannelMessageHandler.class);
 
+    @Autowired
+    protected ClientDao clientDao;
+
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
-//        Client client = clientDao.getClientByChannel(e.getChannel());
-//        client.handleClientMessage((ClientMessage) e.getMessage());
+        Client client = clientDao.getClientByChannel(e.getChannel());
+        client.handleClientMessage((ClientMessage) e.getMessage());
     }
 
     /**
@@ -41,7 +47,7 @@ public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     @Override
     public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
         logger.info("channel connected");
-//        clientDao.addClientFromChannel(e.getChannel());
+        clientDao.addClientFromChannel(e.getChannel());
     }
 
     /**
@@ -50,6 +56,6 @@ public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     @Override
     public void channelDisconnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
         logger.info("channel disconnected");
-//        clientDao.removeClientByChannel(e.getChannel());
+        clientDao.removeClientByChannel(e.getChannel());
     }
 }
