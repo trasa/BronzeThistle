@@ -1,7 +1,7 @@
 package bronzethistle.zoneserver.protocol;
 
+import bronzethistle.messages.client.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
-import bronzethistle.zoneserver.ClientMessage;
 import bronzethistle.zoneserver.dao.ClientDao;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
@@ -30,7 +30,7 @@ public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
         Client client = clientDao.getClientByChannel(e.getChannel());
-        client.handleClientMessage((ClientMessage) e.getMessage());
+        client.handleClientMessage((SerializedClientMessage) e.getMessage());
     }
 
     /**

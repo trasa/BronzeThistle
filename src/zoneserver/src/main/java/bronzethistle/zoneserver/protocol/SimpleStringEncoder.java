@@ -1,7 +1,6 @@
 package bronzethistle.zoneserver.protocol;
 
-import bronzethistle.zoneserver.ClientMessage;
-import org.jboss.netty.buffer.ChannelBuffer;
+import bronzethistle.messages.client.SerializedClientMessage;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -15,10 +14,10 @@ import java.nio.charset.Charset;
 public class SimpleStringEncoder extends OneToOneEncoder {
     @Override
     protected Object encode(ChannelHandlerContext ctx, Channel channel, Object msg) throws Exception {
-        if (!(msg instanceof ClientMessage)) {
+        if (!(msg instanceof SerializedClientMessage)) {
             return msg;
         }
-        ClientMessage wrapper = (ClientMessage) msg;
+        SerializedClientMessage wrapper = (SerializedClientMessage) msg;
         return ChannelBuffers.copiedBuffer(wrapper.toString(), Charset.defaultCharset());
     }
 }

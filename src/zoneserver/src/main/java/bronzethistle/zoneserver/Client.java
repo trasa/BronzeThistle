@@ -1,26 +1,35 @@
 package bronzethistle.zoneserver;
 
-import bronzethistle.messages.client.LoginMessage;
+import bronzethistle.messages.client.Message;
+import bronzethistle.messages.client.SerializedClientMessage;
+import converters.MessageConverter;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.Resource;
+import java.util.Map;
 
 public class Client implements MessageHandler {
     private static final Logger logger = LoggerFactory.getLogger(Client.class);
 
     private final Channel channel;
-    private long playerId;
-    private int channelId;
-    public long currentZone;
-    public String userName;
+    private final long playerId;
+    private final int channelId;
 
-//    public final String outDestination;
-//    public final String inDestination;
+    // TODO fields:
+//    private long currentZone;
+//    private String userName;
+//    private final String outDestination;
+//    private final String inDestination;
 
+    @Autowired
+    protected MessageConverter messageConverter;
 
-//    @Resource(name = "gameMessageHandlers")
-//    protected Map<Integer, GameMessageHandler<?>> gameMessageHandlers;
+    @Resource(name = "gameMessageHandlers")
+    protected Map<String, GameMessageHandler<?>> gameMessageHandlers;
 
     /**
      * Creates a client attached to a channel.
@@ -66,10 +75,16 @@ public class Client implements MessageHandler {
         // TODO
     }
 
-    public void handleClientMessage(ClientMessage message) {
-//        boolean sendToServer;
-//        int messageId = -1;
-//
+    public void handleClientMessage(SerializedClientMessage rawMessage) {
+        Message msg = messageConverter.deserialize(rawMessage);
+        GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getCommand());
+        if (messageHandler != null) {
+            messageHandler.handleMessage(this, msg);
+        }
+        // else ... send to server... or something... TODO
+
+
+        // --- genesis code follows ---
 //        try {
 //            Object clientMessage = messageCodec.deserializeFromBytes(message);
 //
@@ -100,15 +115,7 @@ public class Client implements MessageHandler {
         return playerId;
     }
 
-    public void setPlayerId(long playerId) {
-        this.playerId = playerId;
-    }
-
     public int getChannelId() {
         return channelId;
-    }
-
-    public void setChannelId(int channelId) {
-        this.channelId = channelId;
     }
 }

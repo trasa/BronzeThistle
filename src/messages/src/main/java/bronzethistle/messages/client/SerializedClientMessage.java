@@ -1,9 +1,9 @@
-package bronzethistle.zoneserver;
+package bronzethistle.messages.client;
 
-public class ClientMessage {
+public class SerializedClientMessage {
     private final String rawMessage;
 
-    public ClientMessage(String rawMessage) {
+    public SerializedClientMessage(String rawMessage) {
         this.rawMessage = rawMessage;
     }
 

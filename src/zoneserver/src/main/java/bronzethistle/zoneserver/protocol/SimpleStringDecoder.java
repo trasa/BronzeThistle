@@ -1,6 +1,6 @@
 package bronzethistle.zoneserver.protocol;
 
-import bronzethistle.zoneserver.ClientMessage;
+import bronzethistle.messages.client.SerializedClientMessage;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneDecoder;
@@ -19,6 +19,6 @@ public class SimpleStringDecoder extends OneToOneDecoder {
         }
         ChannelBuffer buf = (ChannelBuffer) msg;
         String rawData = buf.toString(Charset.defaultCharset()).trim();
-        return new ClientMessage(rawData);
+        return new SerializedClientMessage(rawData);
     }
 }
