@@ -1,5 +1,6 @@
 package bronzethistle.zoneserver;
 
+import bronzethistle.messages.client.LoginMessage;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
