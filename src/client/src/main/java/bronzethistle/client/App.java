@@ -70,24 +70,10 @@ public class App {
         // start application context
         applicationContext.refresh();
 
-        connectToZone();
-    }
-
-
-
-    private void connectToZone() throws Exception {
-
         ClientBootstrap bootstrap = applicationContext.getBean(ClientBootstrap.class);
+        Channel channel = connectToZone(bootstrap);
 
-        // Start the connection attempt.
-        ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 8114));
-        // Wait until the connection attempt succeeds or fails.
-        Channel channel = future.awaitUninterruptibly().getChannel();
-        if (!future.isSuccess()) {
-            future.getCause().printStackTrace();
-            bootstrap.releaseExternalResources();
-            return;
-        }
+        // ... stuff happens here ...
 
         // Read commands from the stdin.
         ChannelFuture lastWriteFuture = null;
@@ -121,6 +107,20 @@ public class App {
 
         // Shut down all thread pools to exit.
         bootstrap.releaseExternalResources();
+    }
+
+
+
+    private Channel connectToZone(ClientBootstrap bootstrap) throws Exception {
+        // Start the connection attempt.
+        ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 8114));
+        // Wait until the connection attempt succeeds or fails.
+        Channel channel = future.awaitUninterruptibly().getChannel();
+        if (!future.isSuccess()) {
+            bootstrap.releaseExternalResources();
+            throw new Exception("Failed to connect to zone server.", future.getCause());
+        }
+        return channel;
     }
 
     /**
