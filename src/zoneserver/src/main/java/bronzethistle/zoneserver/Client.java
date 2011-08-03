@@ -2,7 +2,8 @@ package bronzethistle.zoneserver;
 
 import bronzethistle.messages.client.Message;
 import bronzethistle.messages.client.SerializedClientMessage;
-import converters.MessageConverter;
+import bronzethistle.zoneserver.handlers.GameMessageHandler;
+import bronzethistle.messages.converters.MessageConverter;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
@@ -77,9 +78,11 @@ public class Client implements MessageHandler {
 
     public void handleClientMessage(SerializedClientMessage rawMessage) {
         Message msg = messageConverter.deserialize(rawMessage);
-        GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getCommand());
+        GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
         if (messageHandler != null) {
             messageHandler.handleMessage(this, msg);
+        } else {
+            logger.info("message hanlder not found for " + msg.getClass().getName());
         }
         // else ... send to server... or something... TODO
 

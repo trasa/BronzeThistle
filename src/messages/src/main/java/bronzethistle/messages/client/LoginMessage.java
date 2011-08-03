@@ -1,7 +1,8 @@
 package bronzethistle.messages.client;
 
 public class LoginMessage implements Message {
-    public String getCommand() {
-        return "login";
+
+    public MessageType getMessageType() {
+        return MessageType.LOGIN;
     }
 }

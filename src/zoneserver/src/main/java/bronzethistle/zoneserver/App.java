@@ -33,6 +33,7 @@ public class App {
 
     private static final String[] APPLICATION_PACKAGES = {
             "bronzethistle.zoneserver",
+            "bronzethistle.messages"
     };
 
     private static final String[] CONFIGURATIONS = {
