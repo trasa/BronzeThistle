@@ -1,9 +1,9 @@
 package bronzethistle.zoneserver.config;
 
+import bronzethistle.messages.protocol.SimpleStringDecoder;
+import bronzethistle.messages.protocol.SimpleStringEncoder;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
 import bronzethistle.zoneserver.protocol.ChannelMessageHandler;
-import bronzethistle.zoneserver.protocol.SimpleStringDecoder;
-import bronzethistle.zoneserver.protocol.SimpleStringEncoder;
 import com.google.common.base.Strings;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.Channel;
