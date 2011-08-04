@@ -1,6 +1,5 @@
 package bronzethistle.messages.protocol;
 
-import bronzethistle.messages.client.SerializedClientMessage;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;

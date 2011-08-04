@@ -1,7 +1,7 @@
 package bronzethistle.zoneserver;
 
 import bronzethistle.messages.client.Message;
-import bronzethistle.messages.client.SerializedClientMessage;
+import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
 import bronzethistle.messages.converters.MessageConverter;
 import org.hornetq.api.core.client.MessageHandler;
@@ -82,7 +82,7 @@ public class Client implements MessageHandler {
         if (messageHandler != null) {
             messageHandler.handleMessage(this, msg);
         } else {
-            logger.info("message hanlder not found for " + msg.getClass().getName());
+            logger.info("message handler not found for " + msg.getClass().getName());
         }
         // else ... send to server... or something... TODO
 

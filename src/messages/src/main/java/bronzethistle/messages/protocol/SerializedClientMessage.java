@@ -1,4 +1,4 @@
-package bronzethistle.messages.client;
+package bronzethistle.messages.protocol;
 
 public class SerializedClientMessage {
     private final String rawMessage;

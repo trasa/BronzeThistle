@@ -2,7 +2,7 @@ package bronzethistle.zoneserver.handlers;
 
 
 import bronzethistle.messages.client.LoginMessage;
-import bronzethistle.messages.client.SerializedClientMessage;
+import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

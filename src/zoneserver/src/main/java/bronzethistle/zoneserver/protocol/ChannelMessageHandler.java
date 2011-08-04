@@ -1,6 +1,6 @@
 package bronzethistle.zoneserver.protocol;
 
-import bronzethistle.messages.client.SerializedClientMessage;
+import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.dao.ClientDao;
 import org.jboss.netty.channel.ChannelHandlerContext;

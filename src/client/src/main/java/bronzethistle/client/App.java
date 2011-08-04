@@ -1,11 +1,9 @@
 package bronzethistle.client;
 
-import bronzethistle.messages.client.SerializedClientMessage;
+import bronzethistle.messages.protocol.SerializedClientMessage;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 import org.slf4j.Logger;
@@ -29,7 +27,6 @@ import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
 
 
 public class App {
