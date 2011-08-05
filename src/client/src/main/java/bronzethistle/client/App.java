@@ -1,5 +1,6 @@
 package bronzethistle.client;
 
+import bronzethistle.client.gui.MainForm;
 import bronzethistle.messages.protocol.SerializedClientMessage;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.Channel;
@@ -22,6 +23,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.Log4jConfigurer;
 import org.springframework.util.SystemPropertyUtils;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
@@ -67,10 +69,20 @@ public class App {
         // start application context
         applicationContext.refresh();
 
+        // display UI...
+        JFrame frame = new JFrame("bronzethistle.client.gui.MainForm");
+        frame.setContentPane(new MainForm().getContentPane());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
+        // connect to zone
         ClientBootstrap bootstrap = applicationContext.getBean(ClientBootstrap.class);
         Channel channel = connectToZone(bootstrap);
 
-        // ... stuff happens here ...
+
+
+
 
         // Read commands from the stdin.
         ChannelFuture lastWriteFuture = null;
