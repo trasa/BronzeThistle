@@ -10,11 +10,6 @@ public class LoginMessage implements Message {
         userName = parts.get(1);
     }
 
-
-//    public MessageType getMessageType() {
-//        return MessageType.LOGIN;
-//    }
-
     public String getUserName() {
         return userName;
     }

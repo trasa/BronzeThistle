@@ -19,10 +19,10 @@ public class Client implements MessageHandler {
     private final Channel channel;
     private final long playerId;
     private final int channelId;
+    private String userName;
 
     // TODO fields:
 //    private long currentZone;
-//    private String userName;
 //    private final String outDestination;
 //    private final String inDestination;
 
@@ -31,6 +31,8 @@ public class Client implements MessageHandler {
 
     @Resource(name = "gameMessageHandlers")
     protected Map<String, GameMessageHandler<?>> gameMessageHandlers;
+
+
 
     /**
      * Creates a client attached to a channel.
@@ -74,10 +76,12 @@ public class Client implements MessageHandler {
 
     public void onMessage(org.hornetq.api.core.client.ClientMessage clientMessage) {
         // TODO
+        logger.info("Client.onMessage");
     }
 
     public void handleClientMessage(SerializedClientMessage rawMessage) {
         Message msg = messageConverter.deserialize(rawMessage);
+        // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
         GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
         if (messageHandler != null) {
             messageHandler.handleMessage(this, msg);
@@ -120,5 +124,10 @@ public class Client implements MessageHandler {
 
     public int getChannelId() {
         return channelId;
+    }
+
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
