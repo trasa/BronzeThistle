@@ -2,6 +2,7 @@ package bronzethistle.zoneserver.handlers;
 
 
 import bronzethistle.messages.client.LoginMessage;
+import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class LoginHandler implements GameMessageHandler<LoginMessage> {
     public void handleMessage(Client client, LoginMessage message) {
         logger.info("login message handled");
         client.setUserName(message.getUserName());
-//        client.getChannel().write(new SerializedClientMessage("you said hello"));
+        LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName());
+        client.getChannel().write(new SerializedClientMessage(response.serialize()));
     }
 }

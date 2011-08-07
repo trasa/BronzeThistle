@@ -2,6 +2,7 @@ package bronzethistle.client;
 
 import bronzethistle.client.gui.MainForm;
 import bronzethistle.messages.protocol.SerializedClientMessage;
+import org.jboss.netty.bootstrap.Bootstrap;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
@@ -55,6 +56,9 @@ public class App {
         commandLineParser.parseArgument(args);
 
         instance.start();
+        while(true) {
+            Thread.sleep(1000);
+        }
     }
 
     private void start() throws Exception {
@@ -71,66 +75,59 @@ public class App {
 
         // display UI...
         JFrame frame = new JFrame("bronzethistle.client.gui.MainForm");
-        frame.setContentPane(new MainForm().getContentPane());
+        MainForm mainForm = applicationContext.getBean(MainForm.class);
+        frame.setContentPane(mainForm.getContentPane());
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-        // connect to zone
-        ClientBootstrap bootstrap = applicationContext.getBean(ClientBootstrap.class);
-        Channel channel = connectToZone(bootstrap);
-
-
-
-
-
-        // Read commands from the stdin.
-        ChannelFuture lastWriteFuture = null;
+        frame.setSize(800, 600);
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        for (; ; ) {
-            String line = in.readLine();
-            if (line == null) {
-                break;
-            }
+        in.readLine();
 
-            // Sends the received line to the server.
-            log.info("sending " + line);
-            lastWriteFuture = channel.write(new SerializedClientMessage(line));
+//  for (; ; ) {
+//            String line = in.readLine();
+//            if (line == null) {
+//                break;
 
-            // If user typed the 'bye' command, wait until the server closes
-            // the connection.
-            if (line.toLowerCase().equals("bye")) {
-                channel.getCloseFuture().awaitUninterruptibly();
-                break;
-            }
-        }
+//        Channel channel = applicationContext.getBean(Channel.class);
 
-        // Wait until all messages are flushed before closing the channel.
-        if (lastWriteFuture != null) {
-            lastWriteFuture.awaitUninterruptibly();
-        }
+//        // Read commands from the stdin.
+//        ChannelFuture lastWriteFuture = null;
+//        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+//        for (; ; ) {
+//            String line = in.readLine();
+//            if (line == null) {
+//                break;
+//            }
+//
+//            // Sends the received line to the server.
+//            log.info("sending " + line);
+//            lastWriteFuture = channel.write(new SerializedClientMessage(line));
+//
+//            // If user typed the 'bye' command, wait until the server closes
+//            // the connection.
+//            if (line.toLowerCase().equals("bye")) {
+//                channel.getCloseFuture().awaitUninterruptibly();
+//                break;
+//            }
+//        }
+
+//        // Wait until all messages are flushed before closing the channel.
+//        if (lastWriteFuture != null) {
+//            lastWriteFuture.awaitUninterruptibly();
+//        }
 
         // Close the connection.  Make sure the close operation ends because
         // all I/O operations are asynchronous in Netty.
-        channel.close().awaitUninterruptibly();
-
-        // Shut down all thread pools to exit.
-        bootstrap.releaseExternalResources();
+//        channel.close().awaitUninterruptibly();
+//
+//        // Shut down all thread pools to exit.
+//        bootstrap.releaseExternalResources();
     }
 
 
 
-    private Channel connectToZone(ClientBootstrap bootstrap) throws Exception {
-        // Start the connection attempt.
-        ChannelFuture future = bootstrap.connect(new InetSocketAddress("localhost", 8114));
-        // Wait until the connection attempt succeeds or fails.
-        Channel channel = future.awaitUninterruptibly().getChannel();
-        if (!future.isSuccess()) {
-            bootstrap.releaseExternalResources();
-            throw new Exception("Failed to connect to zone server.", future.getCause());
-        }
-        return channel;
-    }
 
     /**
      * Registers a property configurer with the given application context.

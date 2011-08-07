@@ -1,5 +1,7 @@
 package bronzethistle.client.protocol;
 
+import bronzethistle.client.gui.MainForm;
+import bronzethistle.messages.protocol.SerializedClientMessage;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
@@ -8,11 +10,15 @@ import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ClientMessageHandler extends SimpleChannelUpstreamHandler  {
     private static final Logger logger = LoggerFactory.getLogger(ClientMessageHandler.class);
+
+    @Autowired
+    protected MainForm mainForm;
 
       @Override
       public void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e) throws Exception {
@@ -23,6 +29,7 @@ public class ClientMessageHandler extends SimpleChannelUpstreamHandler  {
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
+        mainForm.handleClientMessage((SerializedClientMessage)e.getMessage());
 //        Client client = clientDao.getClientByChannel(e.getChannel());
 //        client.handleClientMessage((SerializedClientMessage) e.getMessage());
     }

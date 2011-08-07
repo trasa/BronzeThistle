@@ -4,12 +4,8 @@ import bronzethistle.client.protocol.ClientMessageHandler;
 import bronzethistle.messages.protocol.SimpleStringDecoder;
 import bronzethistle.messages.protocol.SimpleStringEncoder;
 import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
+import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.handler.codec.compression.ZlibDecoder;
 import org.jboss.netty.handler.codec.compression.ZlibEncoder;
 import org.jboss.netty.handler.codec.compression.ZlibWrapper;
@@ -21,6 +17,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 
 @Configuration
@@ -79,5 +76,20 @@ public class SocketClientConfiguration {
         clientBootstrap.setOption("reuseAddress", false);
 
         return clientBootstrap;
+    }
+
+    @Bean
+    public Channel channel() throws Exception {
+        ClientBootstrap boot = bootstrap();
+        // Start the connection attempt.
+        // TODO pull address and such from configuration...
+        ChannelFuture future = boot.connect(new InetSocketAddress("localhost", 8114));
+        // Wait until the connection attempt succeeds or fails.
+        org.jboss.netty.channel.Channel channel = future.awaitUninterruptibly().getChannel();
+        if (!future.isSuccess()) {
+            boot.releaseExternalResources();
+            throw new Exception("Failed to connect to zone server.", future.getCause());
+        }
+        return channel;
     }
 }
