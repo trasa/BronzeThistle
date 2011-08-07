@@ -1,11 +1,8 @@
 package bronzethistle.messages.converters;
 
 
-import bronzethistle.messages.client.LoginResponseMessage;
-import bronzethistle.messages.client.Message;
-import bronzethistle.messages.client.MessageType;
+import bronzethistle.messages.client.*;
 import bronzethistle.messages.protocol.SerializedClientMessage;
-import bronzethistle.messages.client.LoginMessage;
 import com.google.common.base.Splitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +32,8 @@ public class MessageConverter {
                 return new LoginMessage(parts);
             case LOGIN_RESPONSE:
                 return new LoginResponseMessage(parts);
+            case ZONE_CLIENT:
+                return new ZoneClientMessage(parts);
             default:
                 throw new UnknownMessageTypeException("Unknown message type: " + parts.get(0));
         }

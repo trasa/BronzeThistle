@@ -8,7 +8,8 @@ import static com.google.common.collect.Maps.newHashMap;
 
 public enum MessageType {
     LOGIN("login"),
-    LOGIN_RESPONSE("loginresponse");
+    LOGIN_RESPONSE("loginresponse"),
+    ZONE_CLIENT("zoneclient");
 
     private static final Map<String, MessageType> MESSAGE_TYPES = newHashMap();
     static {

@@ -1,5 +1,6 @@
 package bronzethistle.zoneserver;
 
+import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.messages.client.Message;
 import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
@@ -127,7 +128,12 @@ public class Client implements MessageHandler {
     }
 
     public String getUserName() { return userName; }
+
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public void send(Message message) {
+        channel.write(new SerializedClientMessage(message.serialize()));
     }
 }
