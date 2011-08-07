@@ -1,6 +1,7 @@
 package bronzethistle.client.protocol;
 
 import bronzethistle.client.gui.MainForm;
+import bronzethistle.messages.client.Message;
 import bronzethistle.messages.protocol.SerializedClientMessage;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -29,9 +30,7 @@ public class ClientMessageHandler extends SimpleChannelUpstreamHandler  {
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
-        mainForm.handleClientMessage((SerializedClientMessage)e.getMessage());
-//        Client client = clientDao.getClientByChannel(e.getChannel());
-//        client.handleClientMessage((SerializedClientMessage) e.getMessage());
+        mainForm.handleClientMessage((Message)e.getMessage());
     }
 
     /**

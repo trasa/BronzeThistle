@@ -2,10 +2,10 @@ package bronzethistle.messages.client;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class ZoneClientMessage implements Message {
         clients.add(client);
     }
 
-    public static class ZoneClientRecord {
+    public static class ZoneClientRecord implements Serializable {
         private final long playerId;
         private final String userName;
 

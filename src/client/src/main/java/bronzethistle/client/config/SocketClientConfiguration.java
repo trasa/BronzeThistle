@@ -1,14 +1,11 @@
 package bronzethistle.client.config;
 
 import bronzethistle.client.protocol.ClientMessageHandler;
-import bronzethistle.messages.protocol.SimpleStringDecoder;
-import bronzethistle.messages.protocol.SimpleStringEncoder;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
-import org.jboss.netty.handler.codec.compression.ZlibDecoder;
-import org.jboss.netty.handler.codec.compression.ZlibEncoder;
-import org.jboss.netty.handler.codec.compression.ZlibWrapper;
+import org.jboss.netty.handler.codec.serialization.ObjectDecoder;
+import org.jboss.netty.handler.codec.serialization.ObjectEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +19,7 @@ import java.util.concurrent.Executors;
 
 @Configuration
 public class SocketClientConfiguration {
-    private static final Logger logger = LoggerFactory.getLogger(SocketClientConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(SocketClientConfiguration.class);
 
 
     @Value("${socket.enableCompression}")
@@ -35,26 +32,14 @@ public class SocketClientConfiguration {
             protected ApplicationContext applicationContext = null;
 
             @Autowired
-            protected SimpleStringDecoder mappingDecoder = null;
-
-            @Autowired
-            protected SimpleStringEncoder mappingEncoder = null;
-
-            @Autowired
             protected ClientMessageHandler clientMessageHandler = null;
 
             public ChannelPipeline getPipeline() throws Exception {
                 ChannelPipeline pipeline = Channels.pipeline();
 
-                // Enable compression if requested
-                if (enableCompression) {
-                    pipeline.addLast("deflater", new ZlibEncoder(ZlibWrapper.GZIP));
-                    pipeline.addLast("inflater", new ZlibDecoder(ZlibWrapper.GZIP));
-                }
-
-                // Add the protocol codec first
-                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringDecoder.class)[0], mappingDecoder);
-                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringEncoder.class)[0], mappingEncoder);
+                // using java serializer for now.
+                pipeline.addLast("decoder", new ObjectDecoder());
+                pipeline.addLast("encoder", new ObjectEncoder());
 
                 pipeline.addLast("handler", clientMessageHandler);
 

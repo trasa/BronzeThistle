@@ -1,7 +1,7 @@
 package bronzethistle.zoneserver.handlers;
 
 import bronzethistle.messages.client.LoginMessage;
-import bronzethistle.messages.protocol.SerializedClientMessage;
+import bronzethistle.messages.client.Message;
 import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;
@@ -35,7 +35,7 @@ public class LoginHandlerTest {
         loginHandler.handleMessage(client, new LoginMessage("username"));
         // assert that channel.send happened
         verify(mockChannel, times(2))
-                .write(any(SerializedClientMessage.class));
+                .write(any(Message.class));
     }
 
 

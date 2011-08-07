@@ -1,20 +1,16 @@
 package bronzethistle.client.gui;
 
+import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.Message;
-import bronzethistle.messages.converters.MessageConverter;
-import bronzethistle.messages.protocol.SerializedClientMessage;
-import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.*;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.logging.Logger;
 
 @Component
 public class MainForm  {
@@ -28,19 +24,18 @@ public class MainForm  {
     @Autowired
     protected Channel channel;
 
-    @Autowired
-    protected MessageConverter messageConverter;
-
-
     public MainForm() {
 
         inputText.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == '\n') {
-                    logger.debug("sending line " + inputText.getText());
                     // send the line
-                    channel.write(new SerializedClientMessage(inputText.getText()));
+                    // TODO so...this needs to be all redone.
+//                    logger.info("sending line " + inputText.getText());
+                    // or need a way to turn a line of text --> Message (instead of the old string buffer messages)
+                    channel.write(new LoginMessage("username")); // TODO
+
                     inputText.setText("");
                     return;
                 }
@@ -53,8 +48,7 @@ public class MainForm  {
         return mainPanel;
     }
 
-    public void handleClientMessage(SerializedClientMessage rawMessage) {
-        Message msg = messageConverter.deserialize(rawMessage);
+    public void handleClientMessage(Message msg) {
         outputPane.setText(outputPane.getText() + "\n" + msg.serialize());
     }
 }

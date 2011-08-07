@@ -1,7 +1,5 @@
 package bronzethistle.zoneserver.config;
 
-import bronzethistle.messages.protocol.SimpleStringDecoder;
-import bronzethistle.messages.protocol.SimpleStringEncoder;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
 import bronzethistle.zoneserver.protocol.ChannelMessageHandler;
 import com.google.common.base.Strings;
@@ -11,9 +9,8 @@ import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.channel.Channels;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-import org.jboss.netty.handler.codec.compression.ZlibDecoder;
-import org.jboss.netty.handler.codec.compression.ZlibEncoder;
-import org.jboss.netty.handler.codec.compression.ZlibWrapper;
+import org.jboss.netty.handler.codec.serialization.ObjectDecoder;
+import org.jboss.netty.handler.codec.serialization.ObjectEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +43,6 @@ public class SocketServerConfiguration {
     @Value("${socket.reuseAddress}")
     protected boolean reuseAddress;
 
-    @Value("${socket.enableCompression}")
-    protected boolean enableCompression;
-
-
     @Bean
     public ChannelPipelineFactory channelPipelineFactory() {
         return new ChannelPipelineFactory() {
@@ -57,27 +50,13 @@ public class SocketServerConfiguration {
             protected ApplicationContext applicationContext = null;
 
             @Autowired
-            protected SimpleStringDecoder mappingDecoder = null;
-
-            @Autowired
-            protected SimpleStringEncoder mappingEncoder = null;
-
-            @Autowired
             protected ChannelMessageHandler eventHandler = null;
 
             public ChannelPipeline getPipeline() throws Exception {
                 ChannelPipeline pipeline = Channels.pipeline();
 
-                // Enable compression if requested
-                if (enableCompression) {
-                    pipeline.addLast("deflater", new ZlibEncoder(ZlibWrapper.GZIP));
-                    pipeline.addLast("inflater", new ZlibDecoder(ZlibWrapper.GZIP));
-                }
-
-                // Add the protocol codec first
-                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringDecoder.class)[0], mappingDecoder);
-
-                pipeline.addLast(applicationContext.getBeanNamesForType(SimpleStringEncoder.class)[0], mappingEncoder);
+                pipeline.addLast("decoder", new ObjectDecoder());
+                pipeline.addLast("encoder", new ObjectEncoder());
 
                 pipeline.addLast("handler", eventHandler);
 

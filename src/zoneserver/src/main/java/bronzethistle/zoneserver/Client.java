@@ -1,13 +1,9 @@
 package bronzethistle.zoneserver;
 
-import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.messages.client.Message;
-import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
-import bronzethistle.messages.converters.MessageConverter;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +23,6 @@ public class Client implements MessageHandler {
 //    private long currentZone;
 //    private final String outDestination;
 //    private final String inDestination;
-
-    @Autowired
-    protected MessageConverter messageConverter;
 
     @Resource(name = "gameMessageHandlers")
     protected Map<String, GameMessageHandler<?>> gameMessageHandlers;
@@ -81,8 +74,7 @@ public class Client implements MessageHandler {
         logger.info("Client.onMessage");
     }
 
-    public void handleClientMessage(SerializedClientMessage rawMessage) {
-        Message msg = messageConverter.deserialize(rawMessage);
+    public void handleClientMessage(Message msg) {
         // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
         GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
         if (messageHandler != null) {
@@ -135,11 +127,6 @@ public class Client implements MessageHandler {
     }
 
     public void send(Message message) {
-        ChannelFuture future = channel.write(new SerializedClientMessage(message.serialize()));
-        // wait for this send to finish before we send another.
-        // this is a hopelessly bad idea for a "real" system, but for now it'll do.
-        // TODO replace this with something that works.
-//        future.awaitUninterruptibly();
-//        assert future.isDone();
+        channel.write(message);
     }
 }
