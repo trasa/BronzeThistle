@@ -3,7 +3,6 @@ package bronzethistle.zoneserver.handlers;
 
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.LoginResponseMessage;
-import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;

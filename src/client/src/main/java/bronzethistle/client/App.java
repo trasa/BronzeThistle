@@ -1,11 +1,6 @@
 package bronzethistle.client;
 
 import bronzethistle.client.gui.MainForm;
-import bronzethistle.messages.protocol.SerializedClientMessage;
-import org.jboss.netty.bootstrap.Bootstrap;
-import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 import org.slf4j.Logger;
