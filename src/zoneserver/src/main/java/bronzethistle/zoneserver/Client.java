@@ -7,6 +7,7 @@ import bronzethistle.zoneserver.handlers.GameMessageHandler;
 import bronzethistle.messages.converters.MessageConverter;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,6 +135,11 @@ public class Client implements MessageHandler {
     }
 
     public void send(Message message) {
-        channel.write(new SerializedClientMessage(message.serialize()));
+        ChannelFuture future = channel.write(new SerializedClientMessage(message.serialize()));
+        // wait for this send to finish before we send another.
+        // this is a hopelessly bad idea for a "real" system, but for now it'll do.
+        // TODO replace this with something that works.
+//        future.awaitUninterruptibly();
+//        assert future.isDone();
     }
 }
