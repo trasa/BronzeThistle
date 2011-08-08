@@ -3,4 +3,5 @@
 *.iml
 *.ipr
 *.class
-
+surefire-reports
+*.swp

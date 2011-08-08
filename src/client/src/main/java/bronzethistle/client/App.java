@@ -1,11 +1,6 @@
 package bronzethistle.client;
 
 import bronzethistle.client.gui.MainForm;
-import bronzethistle.messages.protocol.SerializedClientMessage;
-import org.jboss.netty.bootstrap.Bootstrap;
-import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 import org.slf4j.Logger;
@@ -27,7 +22,6 @@ import org.springframework.util.SystemPropertyUtils;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +50,7 @@ public class App {
         commandLineParser.parseArgument(args);
 
         instance.start();
+        // TODO remove this, it isnt needed (i think)
         while(true) {
             Thread.sleep(1000);
         }

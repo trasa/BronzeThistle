@@ -3,7 +3,6 @@ package bronzethistle.zoneserver.handlers;
 
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.LoginResponseMessage;
-import bronzethistle.messages.protocol.SerializedClientMessage;
 import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;
@@ -26,11 +25,6 @@ public class LoginHandler implements GameMessageHandler<LoginMessage> {
         // send response
         LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName());
         client.send(response);
-
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException ignore) {
-//        }
 
         // on login assign the player into the lobby.
         Zone lobby = zoneDao.getLobby();

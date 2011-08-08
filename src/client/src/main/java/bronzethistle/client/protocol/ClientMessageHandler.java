@@ -2,7 +2,6 @@ package bronzethistle.client.protocol;
 
 import bronzethistle.client.gui.MainForm;
 import bronzethistle.messages.client.Message;
-import bronzethistle.messages.protocol.SerializedClientMessage;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
