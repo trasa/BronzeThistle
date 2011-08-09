@@ -1,3 +1,4 @@
+target/
 # intellij project files
 *.iws
 *.iml
