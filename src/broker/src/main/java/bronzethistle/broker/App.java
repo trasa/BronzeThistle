@@ -1,11 +1,5 @@
 package bronzethistle.broker;
 
-import org.hornetq.api.core.TransportConfiguration;
-import org.hornetq.core.config.impl.ConfigurationImpl;
-import org.hornetq.core.remoting.impl.netty.NettyAcceptorFactory;
-import org.hornetq.core.server.HornetQServer;
-import org.hornetq.core.server.HornetQServers;
-import org.hornetq.core.server.JournalType;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
@@ -26,11 +20,7 @@ import org.springframework.util.SystemPropertyUtils;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.hornetq.core.config.Configuration;
 
 public class App {
     private static final Logger log = LoggerFactory.getLogger(App.class);
@@ -123,25 +113,6 @@ public class App {
         applicationContext.refresh();
 
         running = true;
-
-        try {
-            // HACK - start hornetq here first, once we get it figured out move it to a bean.
-            Configuration configuration = new ConfigurationImpl();
-            configuration.setPersistenceEnabled(true);
-            configuration.setSecurityEnabled(false);
-            Map<String, Object> connectionParams = new HashMap<String, Object>();
-            connectionParams.put("port", 5445);
-            configuration.getAcceptorConfigurations().add(new TransportConfiguration(NettyAcceptorFactory.class.getName(), connectionParams));
-            configuration.setJournalType(JournalType.NIO);
-
-            HornetQServer server = HornetQServers.newHornetQServer(configuration);
-            server.start();
-
-
-
-        } catch (Exception e) {
-            log.error("failed to start hornetq", e);
-        }
     }
 
     public synchronized void stop() {

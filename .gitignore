@@ -1,3 +1,4 @@
+data/
 target/
 # intellij project files
 *.iws
