@@ -13,6 +13,7 @@
         <module>client</module>
         <module>messages</module>
         <module>broker</module>
+        <module>entitycontainer</module>
     </modules>
 
     <properties>

@@ -38,7 +38,7 @@ public class HornetQConfiguration {
 
     @Bean
     public HornetQServer hornetqserver() throws Exception {
-        HornetQServer server = HornetQServers.newHornetQServer(configuration());
+        HornetQServer server = HornetQServers.newHornetQServer(this.configuration());
         server.start();
         return server;
     }
