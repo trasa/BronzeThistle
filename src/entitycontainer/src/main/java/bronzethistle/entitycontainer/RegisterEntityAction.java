@@ -22,7 +22,7 @@ public class RegisterEntityAction implements EntityAction {
         ps.setXp(10);
         // something needs to register the entity here with the broker
         try {
-            registrar.registerEntity(getEntityName(), ps);
+            registrar.registerEntity(getEntityName());
         } catch (HornetQException e) {
             log.error("Failed to register entity " + getEntityName(), e);
         }

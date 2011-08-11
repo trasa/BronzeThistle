@@ -40,6 +40,8 @@ public class HornetQClientConfiguration {
 
     @Bean(initMethod="start", destroyMethod="close")
     public ClientSession session() throws Exception {
-        return sessionFactory().createSession();
+        ClientSession session = sessionFactory().createSession();
+        session.start();
+        return session;
     }
 }
