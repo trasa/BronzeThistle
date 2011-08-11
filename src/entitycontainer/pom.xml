@@ -15,4 +15,12 @@
     <packaging>jar</packaging>
 
     <name>entity-container</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>bronzethistle</groupId>
+            <artifactId>messages</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class HornetQConfiguration {
-    private static final Logger logger = LoggerFactory.getLogger(HornetQConfiguration.class);
+public class HornetQServerConfiguration {
+    private static final Logger logger = LoggerFactory.getLogger(HornetQServerConfiguration.class);
 
     @Value("${hornetq.port}")
     protected int port;

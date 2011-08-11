@@ -61,7 +61,6 @@ public class App {
 
         EntityActionParser actionParser = applicationContext.getBean(EntityActionParser.class);
 
-        //noinspection InfiniteLoopStatement
         try {
             while(true) {
                 InputStreamReader isr = new InputStreamReader(System.in);
