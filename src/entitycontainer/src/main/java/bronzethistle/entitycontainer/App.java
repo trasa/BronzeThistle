@@ -138,10 +138,8 @@ public class App {
             ClientConsumer consumer = registrar.registerEntity("XYZ");
             // get PlayerStat object
             registrar.requestObject("XYZ");
+
             for(;;) {
-
-
-
                 // watch object for changes and print them out as they happen.
                 ClientMessage msg = consumer.receive();
                 String msgType = msg.getStringProperty("message_type");
