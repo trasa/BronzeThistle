@@ -1,6 +1,5 @@
 package bronzethistle.messages.client;
 
-import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Lists.newLinkedList;
 
 public class ZoneClientMessage implements Message {
     private static final Logger log = LoggerFactory.getLogger(ZoneClientMessage.class);
@@ -27,15 +25,6 @@ public class ZoneClientMessage implements Message {
     }
 
     public ZoneClientMessage() {
-    }
-
-    public String serialize() {
-        List<String> parts = newLinkedList();
-        parts.add(MessageType.ZONE_CLIENT.getCode());
-        for(ZoneClientRecord c : clients) {
-            parts.add(c.toString());
-        }
-        return Joiner.on("|").join(parts);
     }
 
     public void addClient(ZoneClientRecord client) {

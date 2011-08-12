@@ -20,8 +20,4 @@ public class LoginMessage implements Message {
     public String getUserName() {
         return userName;
     }
-
-    public String serialize() {
-        return Joiner.on("|").join(MessageType.LOGIN.getCode(), userName);
-    }
 }

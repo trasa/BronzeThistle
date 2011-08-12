@@ -49,6 +49,6 @@ public class MainForm  {
     }
 
     public void handleClientMessage(Message msg) {
-        outputPane.setText(outputPane.getText() + "\n" + msg.serialize());
+        outputPane.setText(outputPane.getText() + "\n" + msg.toString());
     }
 }
