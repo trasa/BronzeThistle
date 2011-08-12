@@ -1,5 +1,12 @@
 package bronzethistle.broker;
 
+import org.hornetq.api.core.HornetQException;
+import org.hornetq.api.core.SimpleString;
+import org.hornetq.api.core.client.ClientConsumer;
+import org.hornetq.api.core.client.ClientMessage;
+import org.hornetq.api.core.client.ClientSession;
+import org.hornetq.core.management.impl.HornetQServerControlImpl;
+import org.hornetq.core.server.HornetQServer;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
@@ -111,8 +118,25 @@ public class App {
 
         // start application context
         applicationContext.refresh();
-
         running = true;
+
+
+//        HornetQServerControlImpl ctrl = applicationContext.getBean(HornetQServerControlImpl.class);
+//          HornetQServer server = applicationContext.getBean(HornetQServer.class);
+
+
+//        ClientSession session = applicationContext.getBean(ClientSession.class);
+//        SimpleString address = new SimpleString(ctrl.getManagementNotificationAddress());
+//
+//        try {
+//            ClientConsumer consumer = session.createConsumer(address);
+//            for(;;) {
+//                ClientMessage msg = consumer.receive();
+//                log.info(msg.toString());
+//            }
+//        } catch (HornetQException e) {
+//            log.error("failed to create mgmt consumer", e);
+//        }
     }
 
     public synchronized void stop() {

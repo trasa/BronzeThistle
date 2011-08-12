@@ -7,6 +7,7 @@ import org.hornetq.api.core.client.ClientConsumer;
 import org.hornetq.api.core.client.ClientMessage;
 import org.hornetq.api.core.client.ClientProducer;
 import org.hornetq.api.core.client.ClientSession;
+import org.hornetq.core.client.impl.ClientMessageImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,9 @@ public class Registrar {
     public void requestObject(String entityName) throws HornetQException {
         SimpleString address = new SimpleString(entityName);
         log.info("requesting object named " + address);
+
         ClientProducer producer = session.createProducer(address);
+
         ClientMessage msg = session.createMessage(true);
         msg.putStringProperty("message_type", "get");
         producer.send(address, msg);
