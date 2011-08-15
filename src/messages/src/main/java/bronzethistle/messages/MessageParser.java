@@ -39,7 +39,7 @@ public class MessageParser {
                 result = new LoginResponseMessage(tokens);
                 break;
             case ZONE_CLIENT:
-                result = new ZoneClientMessage(tokens);
+                result = new ZoneClientMessage(); // TODO not sure if we still need to maintain this or not.
                 break;
             default:
                 throw new MessageParserException("Unknown Message Type: " + messageTypeCode);

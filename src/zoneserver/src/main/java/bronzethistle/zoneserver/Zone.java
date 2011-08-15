@@ -39,8 +39,11 @@ public class Zone {
     }
 
     public void addClient(Client client) {
+        // TR TODO this needs to be rethought, see notes in notebook..
+
         logger.info(String.format("Client %s (%s) added to zone %s (%s)",
                 client.getUserName(), client.getPlayerId(), name, zoneId));
+
         clients.put(client.getPlayerId(), client);
 
         // tell everybody about everybody.

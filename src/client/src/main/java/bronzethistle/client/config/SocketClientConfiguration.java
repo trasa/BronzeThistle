@@ -1,6 +1,6 @@
 package bronzethistle.client.config;
 
-import bronzethistle.client.protocol.ClientMessageHandler;
+import bronzethistle.client.protocol.ClientChannelHandler;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
@@ -32,7 +32,7 @@ public class SocketClientConfiguration {
             protected ApplicationContext applicationContext = null;
 
             @Autowired
-            protected ClientMessageHandler clientMessageHandler = null;
+            protected ClientChannelHandler clientMessageHandler = null;
 
             public ChannelPipeline getPipeline() throws Exception {
                 ChannelPipeline pipeline = Channels.pipeline();

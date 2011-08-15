@@ -22,12 +22,13 @@ public class LoginHandler implements GameMessageHandler<LoginMessage> {
         logger.info("login message handled");
         client.setUserName(message.getUserName());
 
-        // send response
-        LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName());
-        client.send(response);
-
         // on login assign the player into the lobby.
         Zone lobby = zoneDao.getLobby();
-        lobby.addClient(client);
+
+        // send response, telling the client that they should go to the lobby.
+        LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName(), lobby.getZoneId());
+        client.send(response);
+
+//        lobby.addClient(client);
     }
 }
