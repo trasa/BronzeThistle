@@ -1,6 +1,6 @@
 package bronzethistle.messages.client;
 
-public class RegisterObjectMessage implements Message {
+public class RequestEntityMessage implements Message {
     private String entityId;
 
     public String getEntityId() { return entityId; }
