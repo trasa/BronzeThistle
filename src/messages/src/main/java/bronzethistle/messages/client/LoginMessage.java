@@ -20,4 +20,9 @@ public class LoginMessage implements Message {
     public String getUserName() {
         return userName;
     }
+
+    @Override
+    public String toString() {
+        return "LoginMessage: " + userName;
+    }
 }

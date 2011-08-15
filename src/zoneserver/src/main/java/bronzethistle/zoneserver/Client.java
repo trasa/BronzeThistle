@@ -6,7 +6,6 @@ import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -106,10 +105,6 @@ public class Client implements MessageHandler {
 //        if (sendToServer) {
 //            messageProcessor.sendMessage(inDestination, outDestination, false, messageId, message.messageContent);
 //        }
-    }
-
-    public Channel getChannel() {
-        return channel;
     }
 
     public long getPlayerId() {

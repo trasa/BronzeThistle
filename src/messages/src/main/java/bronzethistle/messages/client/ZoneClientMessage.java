@@ -15,20 +15,20 @@ public class ZoneClientMessage implements Message {
 
     private List<ZoneClientRecord> clients = newArrayList();
 
-    public ZoneClientMessage(List<String> parts) {
-
-        for (int i=1; i < parts.size(); i++) {
-            String r = parts.get(i);
-            log.info("Zone Client Message: " + r);
-            clients.add(new ZoneClientRecord(r));
-        }
-    }
-
     public ZoneClientMessage() {
     }
 
     public void addClient(ZoneClientRecord client) {
         clients.add(client);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("ZoneClient: ");
+        for (ZoneClientRecord r : clients) {
+            sb.append("(").append(r.toString()).append(") ");
+        }
+        return sb.toString();
     }
 
     public static class ZoneClientRecord implements Serializable {
@@ -39,17 +39,6 @@ public class ZoneClientMessage implements Message {
 
             this.playerId = playerId;
             this.userName = userName;
-        }
-
-        public ZoneClientRecord(String serialized) {
-            // TODO replace with something less stupid later.
-            log.info("rec is '" + serialized + "'");
-            ArrayList<String> parts = newArrayList();
-            for(String s : Splitter.on(",").trimResults().split(serialized)) {
-                parts.add(s);
-            }
-            playerId = Long.parseLong(parts.get(0));
-            userName = parts.get(1);
         }
 
         public long getPlayerId() {

@@ -1,5 +1,7 @@
 package bronzethistle.client.gui;
 
+import bronzethistle.messages.MessageParser;
+import bronzethistle.messages.MessageParserException;
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.Message;
 import org.jboss.netty.channel.Channel;
@@ -30,13 +32,13 @@ public class MainForm  {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == '\n') {
-                    // send the line
-                    // TODO so...this needs to be all redone.
-//                    logger.info("sending line " + inputText.getText());
-                    // or need a way to turn a line of text --> Message (instead of the old string buffer messages)
-                    channel.write(new LoginMessage("username")); // TODO
-
-                    inputText.setText("");
+                    try {
+                        Message msg = new MessageParser(inputText.getText()).parse();
+                        channel.write(msg);
+                        inputText.setText("");
+                    } catch (MessageParserException ex) {
+                        inputText.setText(ex.toString());
+                    }
                     return;
                 }
                 super.keyTyped(e);
