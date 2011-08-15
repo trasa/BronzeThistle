@@ -2,8 +2,8 @@ package bronzethistle.client.gui;
 
 import bronzethistle.messages.MessageParser;
 import bronzethistle.messages.MessageParserException;
-import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.Message;
+import bronzethistle.messages.entities.Player;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +22,12 @@ public class MainForm  {
     private JTextField inputText;
     private JPanel mainPanel;
     private JTextPane outputPane;
+
+    private Player player;
+
+    public Player getPlayer() { return player; }
+    public void setPlayer(Player p) { player = p; }
+
 
     @Autowired
     protected Channel channel;

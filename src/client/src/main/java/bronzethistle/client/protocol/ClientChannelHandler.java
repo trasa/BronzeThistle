@@ -1,6 +1,7 @@
 package bronzethistle.client.protocol;
 
 import bronzethistle.client.gui.MainForm;
+import bronzethistle.client.handlers.ClientMessageHandler;
 import bronzethistle.messages.client.Message;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
