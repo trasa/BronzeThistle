@@ -1,5 +1,6 @@
 package bronzethistle.client.gui;
 
+import bronzethistle.client.protocol.ClientChannelHandler;
 import bronzethistle.messages.MessageParser;
 import bronzethistle.messages.MessageParserException;
 import bronzethistle.messages.client.Message;
@@ -7,6 +8,7 @@ import bronzethistle.messages.entities.Player;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -14,7 +16,9 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+// DependsOn is to avoid a circular dependency on Channel (via ClientChannelHandler and LoginResponseMessageHandler)
 @Component
+@DependsOn("clientChannelHandler")
 public class MainForm  {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(MainForm.class);

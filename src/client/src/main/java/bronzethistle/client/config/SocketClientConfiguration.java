@@ -59,11 +59,10 @@ public class SocketClientConfiguration {
         clientBootstrap.setPipelineFactory(channelPipelineFactory());
 
         clientBootstrap.setOption("reuseAddress", false);
-
         return clientBootstrap;
     }
 
-    @Bean
+    @Bean(destroyMethod = "close")
     public Channel channel() throws Exception {
         ClientBootstrap boot = bootstrap();
         // Start the connection attempt.

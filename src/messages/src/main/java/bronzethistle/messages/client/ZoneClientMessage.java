@@ -31,6 +31,10 @@ public class ZoneClientMessage implements Message {
         return sb.toString();
     }
 
+    public MessageType getMessageType() {
+        return MessageType.ZONE_CLIENT;
+    }
+
     public static class ZoneClientRecord implements Serializable {
         private final long playerId;
         private final String userName;

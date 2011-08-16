@@ -25,4 +25,8 @@ public class LoginMessage implements Message {
     public String toString() {
         return "LoginMessage: " + userName;
     }
+
+    public MessageType getMessageType() {
+        return MessageType.LOGIN;
+    }
 }

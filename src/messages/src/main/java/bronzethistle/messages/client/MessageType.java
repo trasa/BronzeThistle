@@ -9,7 +9,8 @@ import static com.google.common.collect.Maps.newHashMap;
 public enum MessageType {
     LOGIN("login"),
     LOGIN_RESPONSE("loginresponse"),
-    ZONE_CLIENT("zoneclient");
+    ZONE_CLIENT("zoneclient"),
+    REQUEST_ENTITY("requestentity");
 
     private static final Map<String, MessageType> MESSAGE_TYPES = newHashMap();
     static {

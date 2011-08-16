@@ -1,11 +1,16 @@
 package bronzethistle.zoneserver;
 
 import bronzethistle.messages.client.Message;
+import bronzethistle.messages.client.RequestEntityMessage;
+import bronzethistle.zoneserver.bus.BusMessageProcessor;
 import bronzethistle.zoneserver.handlers.GameMessageHandler;
+import org.hornetq.api.core.HornetQException;
+import org.hornetq.api.core.client.ClientMessage;
 import org.hornetq.api.core.client.MessageHandler;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -26,7 +31,8 @@ public class Client implements MessageHandler {
     @Resource(name = "gameMessageHandlers")
     protected Map<String, GameMessageHandler<?>> gameMessageHandlers;
 
-
+    @Autowired
+    protected BusMessageProcessor messageProcessor;
 
     /**
      * Creates a client attached to a channel.
@@ -67,10 +73,19 @@ public class Client implements MessageHandler {
 //        }
     }
 
+    public void registerEntity(String entityAddress) throws HornetQException {
+        messageProcessor.setConsumer(entityAddress, this);
+    }
 
-    public void onMessage(org.hornetq.api.core.client.ClientMessage clientMessage) {
+    public void requestEntity(String entityAddress) throws HornetQException {
+        RequestEntityMessage msg = new RequestEntityMessage();
+        msg.setEntityId(entityAddress);
+        messageProcessor.sendMessage(entityAddress, msg);
+    }
+
+    public void onMessage(ClientMessage clientMessage) {
         // TODO
-        logger.info("Client.onMessage");
+        logger.info("Client.onMessage hornetq: " + clientMessage.getStringProperty("message_type"));
     }
 
     public void handleClientMessage(Message msg) {
@@ -124,4 +139,7 @@ public class Client implements MessageHandler {
     public void send(Message message) {
         channel.write(message);
     }
+
+
+
 }

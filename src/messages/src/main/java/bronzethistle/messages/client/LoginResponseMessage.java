@@ -28,4 +28,8 @@ public class LoginResponseMessage implements Message {
         return String.format("LoginResponse: %s - %s in zone %s",
                 playerId, userName, zoneId);
     }
+
+    public MessageType getMessageType() {
+        return MessageType.LOGIN_RESPONSE;
+    }
 }

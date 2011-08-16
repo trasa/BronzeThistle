@@ -5,4 +5,8 @@ public class RequestEntityMessage implements Message {
 
     public String getEntityId() { return entityId; }
     public void setEntityId(String value) { this.entityId = value; }
+
+    public MessageType getMessageType() {
+        return MessageType.REQUEST_ENTITY;
+    }
 }

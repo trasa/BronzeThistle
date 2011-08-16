@@ -21,10 +21,10 @@ public class ClientChannelHandler extends SimpleChannelUpstreamHandler {
     private static final Logger logger = LoggerFactory.getLogger(ClientChannelHandler.class);
 
     @Autowired
-    protected MainForm mainForm;
+    protected Map<String, ClientMessageHandler<?>> clientMessageHandlers;
 
     @Autowired
-    protected Map<String, ClientMessageHandler<?>> clientMessageHandlers;
+    protected MainForm mainForm;
 
     @Override
     public void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e) throws Exception {
