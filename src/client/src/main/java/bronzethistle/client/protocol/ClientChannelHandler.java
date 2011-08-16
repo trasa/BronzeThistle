@@ -1,6 +1,7 @@
 package bronzethistle.client.protocol;
 
 import bronzethistle.client.gui.MainForm;
+import bronzethistle.client.handlers.ClientMessageHandler;
 import bronzethistle.messages.client.Message;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -13,23 +14,39 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
-public class ClientMessageHandler extends SimpleChannelUpstreamHandler  {
-    private static final Logger logger = LoggerFactory.getLogger(ClientMessageHandler.class);
+public class ClientChannelHandler extends SimpleChannelUpstreamHandler {
+    private static final Logger logger = LoggerFactory.getLogger(ClientChannelHandler.class);
 
     @Autowired
     protected MainForm mainForm;
 
-      @Override
-      public void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e) throws Exception {
-          logger.info(e.toString());
-          super.handleUpstream(ctx, e);
-      }
+    @Autowired
+    protected Map<String, ClientMessageHandler<?>> clientMessageHandlers;
+
+    @Override
+    public void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e) throws Exception {
+        logger.info(e.toString());
+        super.handleUpstream(ctx, e);
+    }
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
-        mainForm.handleClientMessage((Message)e.getMessage());
+
+        Message msg = (Message) e.getMessage();
+
+        mainForm.handleClientMessage(msg);
+
+        // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
+        ClientMessageHandler messageHandler = clientMessageHandlers.get(msg.getClass().getName());
+        if (messageHandler != null) {
+            messageHandler.handleMessage(msg);
+        } else {
+            logger.info("message handler not found for " + msg.getClass().getName());
+        }
     }
 
     /**

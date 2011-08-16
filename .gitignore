@@ -1,6 +1,9 @@
+data/
+target/
 # intellij project files
 *.iws
 *.iml
 *.ipr
 *.class
-
+surefire-reports
+*.swp

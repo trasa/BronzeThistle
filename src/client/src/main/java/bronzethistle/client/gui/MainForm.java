@@ -1,8 +1,9 @@
 package bronzethistle.client.gui;
 
-import bronzethistle.client.protocol.MessageBuilder;
-import bronzethistle.messages.client.LoginMessage;
+import bronzethistle.messages.MessageParser;
+import bronzethistle.messages.MessageParserException;
 import bronzethistle.messages.client.Message;
+import bronzethistle.messages.entities.Player;
 import org.jboss.netty.channel.Channel;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,14 @@ public class MainForm  {
     private JPanel mainPanel;
     private JTextPane outputPane;
 
-    @Autowired
-    protected Channel channel;
+    private Player player;
+
+    public Player getPlayer() { return player; }
+    public void setPlayer(Player p) { player = p; }
+
 
     @Autowired
-    protected MessageBuilder messageBuilder;
+    protected Channel channel;
 
     public MainForm() {
 
@@ -34,13 +38,13 @@ public class MainForm  {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == '\n') {
-                    // send the line
-//                    logger.info("sending line " + inputText.getText());
-                    // or need a way to turn a line of text --> Message (instead of the old string buffer messages)
-                    Message msg = messageBuilder.buildMessage(inputText.getText());
-                    channel.write(msg);
-
-                    inputText.setText("");
+                    try {
+                        Message msg = new MessageParser(inputText.getText()).parse();
+                        channel.write(msg);
+                        inputText.setText("");
+                    } catch (MessageParserException ex) {
+                        inputText.setText(ex.toString());
+                    }
                     return;
                 }
                 super.keyTyped(e);
@@ -53,6 +57,6 @@ public class MainForm  {
     }
 
     public void handleClientMessage(Message msg) {
-        outputPane.setText(outputPane.getText() + "\n" + msg.serialize());
+        outputPane.setText(outputPane.getText() + "\n" + msg.toString());
     }
 }

@@ -21,7 +21,8 @@ public class LoginMessage implements Message {
         return userName;
     }
 
-    public String serialize() {
-        return Joiner.on("|").join(MessageType.LOGIN.getCode(), userName);
+    @Override
+    public String toString() {
+        return "LoginMessage: " + userName;
     }
 }

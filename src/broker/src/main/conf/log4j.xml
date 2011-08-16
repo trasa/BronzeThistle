@@ -2,7 +2,7 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration>
     <appender name="fileLogger" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/var/log/bronzethistle/zoneserver.log"/>
+        <param name="File" value="/var/log/bronzethistle/broker.log"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
