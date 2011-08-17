@@ -14,13 +14,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 @Component
 public class ClientChannelHandler extends SimpleChannelUpstreamHandler {
     private static final Logger logger = LoggerFactory.getLogger(ClientChannelHandler.class);
 
-    @Autowired
+    @Resource(name="clientMessageHandlers")
     protected Map<String, ClientMessageHandler<?>> clientMessageHandlers;
 
     @Autowired
@@ -41,7 +42,8 @@ public class ClientChannelHandler extends SimpleChannelUpstreamHandler {
         mainForm.handleClientMessage(msg);
 
         // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
-        ClientMessageHandler messageHandler = clientMessageHandlers.get(msg.getClass().getName());
+        String key = msg.getClass().getName();
+        ClientMessageHandler messageHandler = clientMessageHandlers.get(key);
         if (messageHandler != null) {
             messageHandler.handleMessage(msg);
         } else {

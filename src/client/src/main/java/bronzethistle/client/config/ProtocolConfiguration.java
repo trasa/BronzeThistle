@@ -20,7 +20,8 @@ public class ProtocolConfiguration {
         for (ClientMessageHandler<?> h : messageHandlers) {
             ParameterizedType paramType = (ParameterizedType)h.getClass().getGenericInterfaces()[0];
             Class<?> type = (Class<?>) paramType.getActualTypeArguments()[0];
-            result.put(type.getName(), h);
+            String key = type.getName();
+            result.put(key, h);
         }
         return result;
     }

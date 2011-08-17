@@ -18,11 +18,9 @@ public class LoginResponseMessageHandler implements ClientMessageHandler<LoginRe
         request.setEntityId("player." + msg.getPlayerId());
         channel.write(request);
 
+        // client needs to know about the zone they are in.
         request = new RequestEntityMessage();
         request.setEntityId("zone." + msg.getZoneId());
         channel.write(request);
-
-        // how does client find out who else is in the room?
-        // how does everyone else find out about this client?
     }
 }

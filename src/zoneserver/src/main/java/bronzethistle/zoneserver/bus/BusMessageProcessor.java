@@ -114,7 +114,10 @@ public class BusMessageProcessor {
     public void sendMessage(String address, Message msg) throws HornetQException {
         ClientMessage clientMessage = busSession.createMessage(false);
         clientMessage.putStringProperty("message_type", msg.getMessageType().getCode());
+        // TODO need to serialize msg into something we can send in a ClientMessage.
+        // can't just send any sort of object...
         clientMessage.putObjectProperty("serialized_state", msg);
+
         producer.send(address, clientMessage);
     }
 }
