@@ -13,15 +13,16 @@ public class RequestEntityHandler implements ClientMessageHandler<RequestEntityM
     private static final Logger log = LoggerFactory.getLogger(RequestEntityHandler.class);
 
     public void handleMessage(Client client, RequestEntityMessage message) {
-        // client wants to register their interest in an object.
-        String entityClientWants = message.getEntityId();
-        try {
-            // register interest
-            client.registerEntity(entityClientWants);
-            // request the current state
-            client.requestEntity(entityClientWants);
-        } catch (HornetQException e) {
-            log.error("Failed to register or request entity", e);
-        }
+        // client is requesting a copy of the entity at this address.
+        String entityClientWantsCopyOf = message.getEntityId();
+        client.requestEntity(entityClientWantsCopyOf);
+//        try {
+//            // register interest
+//            client.registerEntity(entityClientWants);
+//            // request the current state
+//            client.requestEntity(entityClientWants);
+//        } catch (HornetQException e) {
+//            log.error("Failed to register or request entity", e);
+//        }
     }
 }

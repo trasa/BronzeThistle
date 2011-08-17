@@ -86,9 +86,9 @@ public class Client implements MessageHandler {
      * @param entityAddress
      * @throws HornetQException
      */
-    public void registerEntity(String entityAddress) throws HornetQException {
-        messageProcessor.setConsumer(entityAddress, this);
-    }
+//    public void registerEntity(String entityAddress) throws HornetQException {
+//        messageProcessor.setConsumer(entityAddress, this);
+//    }
 
     /**
      * This client wishes to get a copy of the entity at the address given.
@@ -98,10 +98,16 @@ public class Client implements MessageHandler {
      * @param entityAddress
      * @throws HornetQException
      */
-    public void requestEntity(String entityAddress) throws HornetQException {
+    public void requestEntity(String entityAddress) {
+        // use registrar to get a copy?
+
         RequestEntityMessage msg = new RequestEntityMessage();
         msg.setEntityId(entityAddress);
-        messageProcessor.sendMessage(entityAddress, msg);
+        try {
+            messageProcessor.sendMessage(entityAddress, msg);
+        } catch (HornetQException e) {
+            logger.error("failed to request entity", e);
+        }
     }
 
 
