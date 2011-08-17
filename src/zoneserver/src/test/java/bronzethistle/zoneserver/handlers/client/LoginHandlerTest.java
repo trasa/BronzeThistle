@@ -1,10 +1,11 @@
-package bronzethistle.zoneserver.handlers;
+package bronzethistle.zoneserver.handlers.client;
 
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.Message;
 import bronzethistle.zoneserver.Client;
 import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;
+import bronzethistle.zoneserver.handlers.client.LoginHandler;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

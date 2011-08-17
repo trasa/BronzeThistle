@@ -1,7 +1,7 @@
-package bronzethistle.zoneserver.handlers;
+package bronzethistle.zoneserver.handlers.client;
 
 import bronzethistle.zoneserver.Client;
 
-public interface GameMessageHandler<T> {
+public interface ClientMessageHandler<T> {
     public void handleMessage(Client client, T message);
 }

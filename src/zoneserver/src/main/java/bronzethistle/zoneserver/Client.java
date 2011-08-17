@@ -3,7 +3,10 @@ package bronzethistle.zoneserver;
 import bronzethistle.messages.client.Message;
 import bronzethistle.messages.client.RequestEntityMessage;
 import bronzethistle.zoneserver.bus.BusMessageProcessor;
-import bronzethistle.zoneserver.handlers.GameMessageHandler;
+import bronzethistle.zoneserver.bus.MessageSerializer;
+import bronzethistle.zoneserver.bus.SerializerException;
+import bronzethistle.zoneserver.handlers.bus.BusMessageHandler;
+import bronzethistle.zoneserver.handlers.client.ClientMessageHandler;
 import org.hornetq.api.core.HornetQException;
 import org.hornetq.api.core.client.ClientMessage;
 import org.hornetq.api.core.client.MessageHandler;
@@ -29,7 +32,10 @@ public class Client implements MessageHandler {
 //    private final String inDestination;
 
     @Resource(name = "gameMessageHandlers")
-    protected Map<String, GameMessageHandler<?>> gameMessageHandlers;
+    protected Map<String, ClientMessageHandler<?>> gameMessageHandlers;
+
+    @Resource(name = "busMessageHandlers")
+    protected Map<String, BusMessageHandler<?>> busMessageHandlers;
 
     @Autowired
     protected BusMessageProcessor messageProcessor;
@@ -83,21 +89,44 @@ public class Client implements MessageHandler {
         messageProcessor.sendMessage(entityAddress, msg);
     }
 
+    /**
+     * A message received from the HornetQ broker.
+     * @param clientMessage
+     */
     public void onMessage(ClientMessage clientMessage) {
         // TODO
         logger.info("Client.onMessage hornetq: " + clientMessage.getStringProperty("message_type"));
-    }
+        try {
+            Message msg = MessageSerializer.deserialize(clientMessage.getBytesProperty("serialized_state"));
+            logger.info(String.format("received %s %s ", msg.getMessageType(), msg.getClass().getName()));
 
-    public void handleClientMessage(Message msg) {
-        // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
-        GameMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
+            // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
+            BusMessageHandler messageHandler = busMessageHandlers.get(msg.getClass().getName());
         if (messageHandler != null) {
             messageHandler.handleMessage(this, msg);
         } else {
-            logger.info("message handler not found for " + msg.getClass().getName());
+            // else ... send to server... or something... TODO
+            logger.info("bus message handler not found for " + msg.getClass().getName());
         }
-        // else ... send to server... or something... TODO
 
+        } catch (SerializerException e) {
+            logger.error("failed to deserialize message", e);
+        }
+    }
+
+    /**
+     * A message received from the netty client.
+     * @param msg
+     */
+    public void handleClientMessage(Message msg) {
+        // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
+        ClientMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
+        if (messageHandler != null) {
+            messageHandler.handleMessage(this, msg);
+        } else {
+            // else ... send to server... or something... TODO
+            logger.info("client message handler not found for " + msg.getClass().getName());
+        }
 
         // --- genesis code follows ---
 //        try {
@@ -105,7 +134,7 @@ public class Client implements MessageHandler {
 //
 //            messageId = messageCodec.getMessageIdByObject(clientMessage);
 //
-//            GameMessageHandler messageHandler = gameMessageHandlers.get(messageId);
+//            ClientMessageHandler messageHandler = gameMessageHandlers.get(messageId);
 //
 //            if (messageHandler != null) {
 //                sendToServer = messageHandler.handleMessage(this, clientMessage);

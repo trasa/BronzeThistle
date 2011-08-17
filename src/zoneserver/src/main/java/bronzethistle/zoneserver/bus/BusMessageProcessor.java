@@ -18,6 +18,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -92,42 +96,15 @@ public class BusMessageProcessor {
             consumer.close();
     }
 
-    /**
-     * Sends a client message into the bus.
-     *
-     * @param destination
-     * @param durable
-     */
-    public void sendMessage(String destination, String sender, boolean durable, int messageId, byte[] data) throws HornetQException {
-
-        ClientMessage busMessage = busSession.createMessage(ClientMessage.MAP_TYPE, durable);
-
-        busMessage.setExpiration(System.currentTimeMillis() + defaultMessageExpirationTime);
-
-        busMessage.putIntProperty("message_type_id", messageId);
-        busMessage.putStringProperty("sender", sender);
-        busMessage.putBytesProperty("message", data);
-
-        producer.send(destination, busMessage);
-    }
-
     public void sendMessage(String address, Message msg) throws HornetQException {
         ClientMessage clientMessage = busSession.createMessage(false);
         clientMessage.putStringProperty("message_type", msg.getMessageType().getCode());
-        // TODO need to serialize msg into something we can send in a ClientMessage.
-        // can't just send any sort of object...
 
-        // this wont work:
-        clientMessage.putObjectProperty("serialized_state", msg);
-
-        /*
-        ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(object);
-        oos.flush();
-        byte[] data = baos.toByteArray();
-          */
-
+        try {
+            clientMessage.putBytesProperty("serialized_state", MessageSerializer.serialize(msg));
+        } catch (SerializerException e) {
+            throw new HornetQException(0, "Failed to serialize Message Data", e);
+        }
         producer.send(address, clientMessage);
     }
 }

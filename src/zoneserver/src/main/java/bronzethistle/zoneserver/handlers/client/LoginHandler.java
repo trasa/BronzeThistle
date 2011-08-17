@@ -1,10 +1,9 @@
-package bronzethistle.zoneserver.handlers;
+package bronzethistle.zoneserver.handlers.client;
 
 
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.zoneserver.Client;
-import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class LoginHandler implements GameMessageHandler<LoginMessage> {
+public class LoginHandler implements ClientMessageHandler<LoginMessage> {
     private static final Logger logger = LoggerFactory.getLogger(LoginHandler.class);
 
     @Autowired

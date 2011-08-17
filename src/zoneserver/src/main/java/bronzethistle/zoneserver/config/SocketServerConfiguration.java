@@ -1,6 +1,7 @@
 package bronzethistle.zoneserver.config;
 
-import bronzethistle.zoneserver.handlers.GameMessageHandler;
+import bronzethistle.zoneserver.handlers.bus.BusMessageHandler;
+import bronzethistle.zoneserver.handlers.client.ClientMessageHandler;
 import bronzethistle.zoneserver.protocol.ChannelMessageHandler;
 import com.google.common.base.Strings;
 import org.jboss.netty.bootstrap.ServerBootstrap;
@@ -86,10 +87,23 @@ public class SocketServerConfiguration {
     }
 
     @Bean
-    public Map<String, GameMessageHandler<?>> gameMessageHandlers(List<GameMessageHandler<?>> messageHandlers) {
+    public Map<String, ClientMessageHandler<?>> clientMessageHandlers(List<ClientMessageHandler<?>> messageHandlers) {
 
-        Map<String, GameMessageHandler<?>> result = newHashMap();
-        for (GameMessageHandler<?> h : messageHandlers) {
+        Map<String, ClientMessageHandler<?>> result = newHashMap();
+        for (ClientMessageHandler<?> h : messageHandlers) {
+            ParameterizedType paramType = (ParameterizedType)h.getClass().getGenericInterfaces()[0];
+
+            Class<?> type = (Class<?>) paramType.getActualTypeArguments()[0];
+            result.put(type.getName(), h);
+        }
+        return result;
+    }
+
+    @Bean(name = "busMessageHandlers")
+    public Map<String, BusMessageHandler<?>> busMessageHandlers(List<BusMessageHandler<?>> messageHandlers) {
+
+        Map<String, BusMessageHandler<?>> result = newHashMap();
+        for (BusMessageHandler<?> h : messageHandlers) {
             ParameterizedType paramType = (ParameterizedType)h.getClass().getGenericInterfaces()[0];
 
             Class<?> type = (Class<?>) paramType.getActualTypeArguments()[0];

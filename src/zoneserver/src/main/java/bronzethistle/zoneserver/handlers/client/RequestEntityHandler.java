@@ -1,4 +1,4 @@
-package bronzethistle.zoneserver.handlers;
+package bronzethistle.zoneserver.handlers.client;
 
 import bronzethistle.messages.client.RequestEntityMessage;
 import bronzethistle.zoneserver.Client;
@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RequestEntityHandler implements GameMessageHandler<RequestEntityMessage> {
+public class RequestEntityHandler implements ClientMessageHandler<RequestEntityMessage> {
 
     private static final Logger log = LoggerFactory.getLogger(RequestEntityHandler.class);
 
