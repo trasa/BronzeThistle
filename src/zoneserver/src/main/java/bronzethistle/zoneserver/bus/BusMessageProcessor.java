@@ -116,7 +116,17 @@ public class BusMessageProcessor {
         clientMessage.putStringProperty("message_type", msg.getMessageType().getCode());
         // TODO need to serialize msg into something we can send in a ClientMessage.
         // can't just send any sort of object...
+
+        // this wont work:
         clientMessage.putObjectProperty("serialized_state", msg);
+
+        /*
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(object);
+        oos.flush();
+        byte[] data = baos.toByteArray();
+          */
 
         producer.send(address, clientMessage);
     }
