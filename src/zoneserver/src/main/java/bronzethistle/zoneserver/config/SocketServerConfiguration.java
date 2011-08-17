@@ -86,7 +86,7 @@ public class SocketServerConfiguration {
         return serverChannel;
     }
 
-    @Bean
+    @Bean(name = "gameMessageHandlers")
     public Map<String, ClientMessageHandler<?>> clientMessageHandlers(List<ClientMessageHandler<?>> messageHandlers) {
 
         Map<String, ClientMessageHandler<?>> result = newHashMap();

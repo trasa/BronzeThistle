@@ -26,7 +26,7 @@ public class ExampleMessageInterceptor implements Interceptor {
         Class<?> packetClass = packet.getClass();
         if (packetClass == CreateQueueMessage.class) {
             CreateQueueMessage m = (CreateQueueMessage)packet;
-            log.info("creating queue named " + m.getQueueName());
+            log.info("creating queue named " + m.getQueueName() + " at address "+ m.getAddress());
 
         } else if (packetClass == SessionSendMessage.class) {
             SessionSendMessage m = (SessionSendMessage)packet;

@@ -79,18 +79,35 @@ public class Client implements MessageHandler {
 //        }
     }
 
+    /**
+     * This client wants to tell everybody that the client "owns" the entity at the address given.
+     * The client will respond to others who want to get information about that entity.
+     *
+     * @param entityAddress
+     * @throws HornetQException
+     */
     public void registerEntity(String entityAddress) throws HornetQException {
         messageProcessor.setConsumer(entityAddress, this);
     }
 
+    /**
+     * This client wishes to get a copy of the entity at the address given.
+     * The client won't own the entity itself, just have a copy of it.
+     * This only sends a request, it doesn't (by itself) fetch a copy.
+     *
+     * @param entityAddress
+     * @throws HornetQException
+     */
     public void requestEntity(String entityAddress) throws HornetQException {
         RequestEntityMessage msg = new RequestEntityMessage();
         msg.setEntityId(entityAddress);
         messageProcessor.sendMessage(entityAddress, msg);
     }
 
+
     /**
      * A message received from the HornetQ broker.
+     *
      * @param clientMessage
      */
     public void onMessage(ClientMessage clientMessage) {
@@ -151,24 +168,20 @@ public class Client implements MessageHandler {
 //        }
     }
 
-    public long getPlayerId() {
-        return playerId;
-    }
+    public long getPlayerId() { return playerId; }
 
-    public int getChannelId() {
-        return channelId;
-    }
+    public int getChannelId() { return channelId; }
 
     public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
+    /**
+     * Send a Message to the player on the other side of this netty socket.
+     *
+     * @param message
+     */
     public void send(Message message) {
         channel.write(message);
     }
-
-
-
 }
