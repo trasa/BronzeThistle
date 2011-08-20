@@ -40,6 +40,7 @@ public class Client implements MessageHandler {
     @Autowired
     protected BusMessageProcessor messageProcessor;
 
+
     /**
      * Creates a client attached to a channel.
      *
@@ -79,35 +80,26 @@ public class Client implements MessageHandler {
 //        }
     }
 
+
+    // register interest in this address...
+    public void registerEntity(String entityClientWantsCopyOf) {
+
+    }
+
     /**
-     * This client wants to tell everybody that the client "owns" the entity at the address given.
-     * The client will respond to others who want to get information about that entity.
+     * This client wants to start getting information about a particular entity.
      *
      * @param entityAddress
      * @throws HornetQException
      */
-//    public void registerEntity(String entityAddress) throws HornetQException {
-//        messageProcessor.setConsumer(entityAddress, this);
-//    }
+    public void requestEntity(String entityAddress) throws HornetQException {
+        // so we start getting messages on this entity
+        messageProcessor.setConsumer(entityAddress, this);
 
-    /**
-     * This client wishes to get a copy of the entity at the address given.
-     * The client won't own the entity itself, just have a copy of it.
-     * This only sends a request, it doesn't (by itself) fetch a copy.
-     *
-     * @param entityAddress
-     * @throws HornetQException
-     */
-    public void requestEntity(String entityAddress) {
-        // use registrar to get a copy?
-
+        // asking for a copy of the entity
         RequestEntityMessage msg = new RequestEntityMessage();
         msg.setEntityId(entityAddress);
-        try {
-            messageProcessor.sendMessage(entityAddress, msg);
-        } catch (HornetQException e) {
-            logger.error("failed to request entity", e);
-        }
+        messageProcessor.sendMessage(entityAddress, msg);
     }
 
 
@@ -125,12 +117,12 @@ public class Client implements MessageHandler {
 
             // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
             BusMessageHandler messageHandler = busMessageHandlers.get(msg.getClass().getName());
-        if (messageHandler != null) {
-            messageHandler.handleMessage(this, msg);
-        } else {
-            // else ... send to server... or something... TODO
-            logger.info("bus message handler not found for " + msg.getClass().getName());
-        }
+            if (messageHandler != null) {
+                messageHandler.handleMessage(this, msg);
+            } else {
+                // else ... send to server... or something... TODO
+                logger.info("bus message handler not found for " + msg.getClass().getName());
+            }
 
         } catch (SerializerException e) {
             logger.error("failed to deserialize message", e);
@@ -139,6 +131,7 @@ public class Client implements MessageHandler {
 
     /**
      * A message received from the netty client.
+     *
      * @param msg
      */
     public void handleClientMessage(Message msg) {
@@ -179,6 +172,7 @@ public class Client implements MessageHandler {
     public int getChannelId() { return channelId; }
 
     public String getUserName() { return userName; }
+
     public void setUserName(String userName) { this.userName = userName; }
 
 
@@ -190,4 +184,6 @@ public class Client implements MessageHandler {
     public void send(Message message) {
         channel.write(message);
     }
+
+
 }

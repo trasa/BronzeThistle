@@ -4,6 +4,7 @@ package bronzethistle.zoneserver.handlers.client;
 import bronzethistle.messages.client.LoginMessage;
 import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.zoneserver.Client;
+import bronzethistle.zoneserver.Zone;
 import bronzethistle.zoneserver.dao.ZoneDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,19 +20,22 @@ public class LoginHandler implements ClientMessageHandler<LoginMessage> {
     @Autowired
     protected ZoneDao zoneDao;
 
-    private long lobbyZoneId;
+    private Zone lobby;
 
     @PostConstruct
     public void init() {
-        lobbyZoneId = zoneDao.getLobby().getZoneId();
+        lobby = zoneDao.getLobby();
     }
 
     public void handleMessage(Client client, LoginMessage message) {
         logger.info("login message handled");
         client.setUserName(message.getUserName());
 
-        // send response, telling the client that they should go to the lobby.
-        LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName(), lobbyZoneId);
+        // put the client in the lobby
+        zoneDao.getLobby().addClient(client);
+
+        // send response, telling the client that they are in the lobby
+        LoginResponseMessage response = new LoginResponseMessage(client.getPlayerId(), client.getUserName(), lobby.getZoneId());
         client.send(response);
     }
 }

@@ -12,14 +12,12 @@ import org.springframework.stereotype.Component;
 public class BusRequestEntityHandler implements BusMessageHandler<RequestEntityMessage> {
     Logger log = LoggerFactory.getLogger(BusRequestEntityHandler.class);
 
-    @Autowired
-    protected EntityRegistrar registrar;
+//    @Autowired
+//    protected EntityRegistrar registrar;
 
-    public void handleMessage(Client client, RequestEntityMessage message) {
-        // Client received a request for an Entity.
-        log.info("bus handling message " + message.getEntityId());
-//        registrar
-
-
+    public void handleMessage(Object client, RequestEntityMessage message) {
+//        // Client received a request for an Entity.
+//        log.info("bus handling message " + message.getEntityId());
+//        registrar.entityResponse(client, message);
     }
 }
