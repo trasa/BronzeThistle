@@ -4,7 +4,13 @@ public class Player {
 
     private long playerId;
     private String name;
-    private long currentZoneId;
+
+    public Player() {}
+
+    public Player(long playerId, String name) {
+        this.playerId = playerId;
+        this.name = name;
+    }
 
 
     public long getPlayerId() {
@@ -23,11 +29,9 @@ public class Player {
         this.name = name;
     }
 
-    public long getCurrentZoneId() {
-        return currentZoneId;
-    }
-
-    public void setCurrentZoneId(long currentZoneId) {
-        this.currentZoneId = currentZoneId;
+    @Override
+    public String toString() {
+        return String.format("Player %s - %s",
+                playerId, name);
     }
 }

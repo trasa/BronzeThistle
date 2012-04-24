@@ -2,6 +2,7 @@ package bronzethistle.zoneserver;
 
 import bronzethistle.messages.client.Message;
 import bronzethistle.messages.client.RequestEntityMessage;
+import bronzethistle.messages.entities.Player;
 import bronzethistle.zoneserver.bus.BusMessageProcessor;
 import bronzethistle.zoneserver.bus.MessageSerializer;
 import bronzethistle.zoneserver.bus.SerializerException;
@@ -106,7 +107,7 @@ public class Client implements MessageHandler {
     /**
      * A message received from the HornetQ broker.
      *
-     * @param clientMessage
+     * @param clientMessage a hornetq bus message.
      */
     public void onMessage(ClientMessage clientMessage) {
         // TODO
@@ -130,11 +131,11 @@ public class Client implements MessageHandler {
     }
 
     /**
-     * A message received from the netty client.
+     * A message received from the netty client through the socket.
      *
-     * @param msg
+     * @param msg a message that originated with the client.
      */
-    public void handleClientMessage(Message msg) {
+    public void handleSocketMessage(Message msg) {
         // TODO dont handle this by class name, instead pull this apart so that there can be multiple handles for a given type of message.
         ClientMessageHandler messageHandler = gameMessageHandlers.get(msg.getClass().getName());
         if (messageHandler != null) {
@@ -175,15 +176,16 @@ public class Client implements MessageHandler {
 
     public void setUserName(String userName) { this.userName = userName; }
 
+    public Player getPlayer() {
+        return new Player(playerId, userName);
+    }
 
     /**
      * Send a Message to the player on the other side of this netty socket.
      *
      * @param message
      */
-    public void send(Message message) {
+    public void sendToSocket(Message message) {
         channel.write(message);
     }
-
-
 }

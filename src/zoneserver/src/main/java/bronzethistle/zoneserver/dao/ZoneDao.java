@@ -15,25 +15,26 @@ public class ZoneDao  {
 
     private ConcurrentMap<Long, Zone> zones;
 
+    public static final Long LOBBY_ZONE_ID = 0L;
+
     public Zone getLobby() {
-        return zones.get(0L);
+        return zones.get(LOBBY_ZONE_ID);
     }
 
     @PostConstruct
     public void init() {
         zones = newConcurrentMap();
-        // by convention zone 0 is always the lobby
         Zone lobby = createZone();
         lobby.setName("Lobby");
     }
 
-    public synchronized Zone createZone(long zoneId) {
+    private synchronized Zone createZone(long zoneId) {
         Zone newZone = new Zone(zoneId);
         zones.put(zoneId, newZone);
         return newZone;
     }
 
-    public synchronized Zone createZone() {
+    private synchronized Zone createZone() {
         long zoneId = zoneIdCounter.getAndIncrement();
         return createZone(zoneId);
     }

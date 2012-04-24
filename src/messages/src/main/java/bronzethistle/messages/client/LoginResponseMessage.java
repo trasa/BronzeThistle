@@ -6,9 +6,9 @@ public class LoginResponseMessage implements Message {
 
     private long playerId;
     private String userName;
-    private long zoneId;
+    private Long zoneId;
 
-    public LoginResponseMessage(long playerId, String userName, long zoneId) {
+    public LoginResponseMessage(long playerId, String userName, Long zoneId) {
         this.playerId = playerId;
         this.userName = userName;
         this.zoneId = zoneId;
@@ -21,11 +21,11 @@ public class LoginResponseMessage implements Message {
 
     public long getPlayerId() { return playerId; }
     public String getUserName() { return userName; }
-    public long getZoneId() { return zoneId; }
+    public Long getZoneId() { return zoneId; }
 
     @Override
     public String toString() {
-        return String.format("LoginResponse: %s - %s in zone %s",
+        return String.format("LoginResponse: playerId %s named '%s' in zone %s",
                 playerId, userName, zoneId);
     }
 

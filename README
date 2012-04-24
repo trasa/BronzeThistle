@@ -1,3 +1,28 @@
-Some readmes contain useful information, but this one does not.
+Bronze Thistle 
+A 'toy' Roomserver / Edgeserver implementation,
+for experimentation with client ideas, distributed objects,
+and other topics of interest.
 
-THIS IS A TEST to see if I've got the git origin information moved over successfully... 
+Components:
+
+* broker
+    Maintains a HornetQ instance so that back-end systems can talk
+    to each other.
+
+* client
+    A trivial client application, hopefully to be replaced with a 
+    less trivial client application as things get off the ground.
+
+* entity container
+    handles management of the distributed entities.  
+    NOTE: likely to be replaced or augmented by a distributed 
+    cache such as Terracotta.
+
+* messages
+    definitions of message and entity objects which are shared
+    between the client and the zoneserver.
+
+* zoneserver
+    provides socket services to the client and manages the 'room'
+    details for the 'game'.
+

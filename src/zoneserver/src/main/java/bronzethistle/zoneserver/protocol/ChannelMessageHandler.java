@@ -30,7 +30,7 @@ public class ChannelMessageHandler extends SimpleChannelUpstreamHandler {
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         logger.info("msg rec'd: " + e.getMessage().toString());
         Client client = clientDao.getClientByChannel(e.getChannel());
-        client.handleClientMessage((Message) e.getMessage());
+        client.handleSocketMessage((Message) e.getMessage());
     }
 
     /**

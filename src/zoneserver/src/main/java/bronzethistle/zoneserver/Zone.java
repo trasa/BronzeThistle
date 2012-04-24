@@ -1,18 +1,19 @@
 package bronzethistle.zoneserver;
 
 import bronzethistle.messages.client.Message;
+import bronzethistle.messages.entities.Player;
 import bronzethistle.zoneserver.bus.BusMessageProcessor;
 import bronzethistle.zoneserver.bus.MessageSerializer;
-import bronzethistle.zoneserver.bus.SerializerException;
 import bronzethistle.zoneserver.handlers.bus.BusMessageHandler;
 import org.hornetq.api.core.client.ClientMessage;
 import org.hornetq.api.core.client.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 
@@ -22,7 +23,7 @@ import static com.google.common.collect.Maps.newConcurrentMap;
 public class Zone implements MessageHandler {
     private static final Logger logger = LoggerFactory.getLogger(Zone.class);
 
-    private final long zoneId;
+    private final Long zoneId;
     private String name;
 
     private ConcurrentMap<Long, Client> clients = newConcurrentMap();
@@ -45,7 +46,7 @@ public class Zone implements MessageHandler {
         this.name = name;
     }
 
-    public long getZoneId() {
+    public Long getZoneId() {
         return zoneId;
     }
 
@@ -60,6 +61,19 @@ public class Zone implements MessageHandler {
         return clients.get(playerId);
     }
 
+    public List<Player> getPlayers() {
+        LinkedList<Player> players = new LinkedList<Player>();
+        for(Client c : clients.values()) {
+            players.add(c.getPlayer());
+        }
+        return players;
+    }
+
+    /**
+     * Handle a client message coming from the hornetq broker.
+     *
+     * @param clientMessage a hornetq client message.
+     */
     public void onMessage(ClientMessage clientMessage) {
         // extract message
         // TODO
