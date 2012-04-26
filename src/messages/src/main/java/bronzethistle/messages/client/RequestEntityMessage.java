@@ -9,4 +9,9 @@ public class RequestEntityMessage implements Message {
     public MessageType getMessageType() {
         return MessageType.REQUEST_ENTITY;
     }
+
+    @Override
+    public String toString() {
+        return "[RequestEntityMessage for entityId " + entityId + "]";
+    }
 }
