@@ -1,6 +1,7 @@
 data/
 target/
 # intellij project files
+.idea
 *.iws
 *.iml
 *.ipr
