@@ -32,8 +32,7 @@ public class App {
     private static final String FILE_LOGGER_CONFIG = "file:${bronzethistle-scheduler.home}/conf/log4j.xml";
 
     private static final String[] APPLICATION_PACKAGES = {
-            "bronzethistle.zoneserver",
-            "bronzethistle.messages"
+            "bronzethistle.scheduler"
     };
 
     private static final String[] CONFIGURATIONS = {
@@ -61,7 +60,7 @@ public class App {
             log.info("Starting bronzethistle scheduler...");
             commandLineParser.parseArgument(args);
             instance.start();
-            log.info("zone server started.");
+            log.info("scheduler started.");
             try {
                 while (instance.isRunning()) {
                     Thread.sleep(5000);
@@ -104,8 +103,9 @@ public class App {
         init();
 
         // create application context
-        applicationContext = new AnnotationConfigApplicationContext();
-        ((AnnotationConfigApplicationContext) applicationContext).scan(APPLICATION_PACKAGES);
+        AnnotationConfigApplicationContext annotated = new AnnotationConfigApplicationContext();
+        applicationContext = annotated;
+        annotated.scan(APPLICATION_PACKAGES);
 
         // add shut down hook
         Runtime.getRuntime().addShutdownHook(new Thread() {

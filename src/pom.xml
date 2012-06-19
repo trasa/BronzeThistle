@@ -19,7 +19,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springframework.version>3.0.5.RELEASE</springframework.version>
+        <springframework.version>3.1.0.RELEASE</springframework.version>
         <slf4j.version>1.5.8</slf4j.version>
         <hornetq.version>2.2.5.Final</hornetq.version>
         <netty.version>3.2.4.Final</netty.version>
@@ -124,6 +124,7 @@
             <artifactId>spring-context-support</artifactId>
             <version>${springframework.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.hornetq</groupId>
             <artifactId>hornetq-core-client</artifactId>
