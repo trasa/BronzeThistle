@@ -14,6 +14,7 @@
         <module>messages</module>
         <module>broker</module>
         <module>entitycontainer</module>
+        <module>scheduler</module>
     </modules>
 
     <properties>
