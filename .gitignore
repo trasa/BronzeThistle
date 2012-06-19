@@ -1,10 +1,9 @@
 data/
 target/
 # intellij project files
-.idea
+.idea/workspace.xml
+.idea/tasks.xml
 *.iws
-*.iml
-*.ipr
 *.class
 surefire-reports
 *.swp
