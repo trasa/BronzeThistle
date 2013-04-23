@@ -24,6 +24,7 @@
         <hornetq.version>2.2.5.Final</hornetq.version>
         <netty.version>3.2.4.Final</netty.version>
         <args4j.version>2.0.12</args4j.version>
+        <guava.version>13.0.1</guava.version>
     </properties>
 
     <build>
@@ -57,7 +58,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>r09</version>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>args4j</groupId>
