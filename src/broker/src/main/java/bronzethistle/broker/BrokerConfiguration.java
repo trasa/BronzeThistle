@@ -1,6 +1,5 @@
-package bronzethistle.broker.config;
+package bronzethistle.broker;
 
-import bronzethistle.broker.ExampleMessageInterceptor;
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.api.core.client.ClientSession;
 import org.hornetq.api.core.client.ClientSessionFactory;
@@ -16,8 +15,11 @@ import org.hornetq.core.server.JournalType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.util.SystemPropertyUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,11 +29,20 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.hornetq.core.remoting.impl.netty.TransportConstants.PORT_PROP_NAME;
 
 @Configuration
-public class HornetQServerConfiguration {
-    private static final Logger log = LoggerFactory.getLogger(HornetQServerConfiguration.class);
+public class BrokerConfiguration {
+    private static final Logger log = LoggerFactory.getLogger(BrokerConfiguration.class);
 
     @Value("${hornetq.port}")
     protected int port;
+
+    @Bean
+    public static PropertyPlaceholderConfigurer propertyConfigurer() {
+        PropertyPlaceholderConfigurer bean = new PropertyPlaceholderConfigurer();
+        bean.setLocation(new DefaultResourceLoader().getResource(SystemPropertyUtils.resolvePlaceholders("file:${app.home}/conf/config.properties")));
+        bean.setSearchSystemEnvironment(true);
+        bean.setSystemPropertiesMode(PropertyPlaceholderConfigurer.SYSTEM_PROPERTIES_MODE_OVERRIDE);
+        return bean;
+    }
 
     @Bean
     public org.hornetq.core.config.Configuration configuration() {

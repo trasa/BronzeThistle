@@ -2,32 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7358598d-f851-4e24-985c-c2d2b7011844" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/izpack/install.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/izpack/userInputSpec.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/assembly/bundle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/conf/logback.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/script/installer/install.sh" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__cglib_cglib_nodep_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aop_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_asm_3_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_beans_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_3_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_support_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_expression_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_instrument_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_test_3_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_test_3_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\broker\src\main\conf\log4j.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\broker\src\main\resources\console-log4j.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_core_2_2_5_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_core_client_2_2_5_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_jms_client_2_2_5_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_jboss_netty_netty_3_2_4_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_5_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_jul_to_slf4j_1_5_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_slf4j_api_1_5_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_5_8.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/broker.iml" afterPath="$PROJECT_DIR$/broker/broker.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/pom.xml" afterPath="$PROJECT_DIR$/broker/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" afterPath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bronzethistle-parent.iml" afterPath="$PROJECT_DIR$/bronzethistle-parent.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/client.iml" afterPath="$PROJECT_DIR$/client/client.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" afterPath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" />
@@ -35,16 +20,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scheduler/scheduler.iml" afterPath="$PROJECT_DIR$/scheduler/scheduler.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zoneserver/zoneserver.iml" afterPath="$PROJECT_DIR$/zoneserver/zoneserver.iml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aop_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_asm_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aspects_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aspects_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_beans_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_support_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_core_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_core_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_expression_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_3_RELEASE.xml" />
-      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_instrument_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_instrument_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_core_2_2_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hornetq_hornetq_core_2_2_14_Final.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_core_client_2_2_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hornetq_hornetq_core_client_2_2_14_Final.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_hornetq_hornetq_jms_client_2_2_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hornetq_hornetq_jms_client_2_2_14_Final.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_jboss_netty_netty_3_2_4_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_5_1_Final.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_5_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_6.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_jul_to_slf4j_1_5_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_6_6.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_slf4j_api_1_5_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_5_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_6.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\broker\src\main\conf\bronzethistle-broker.properties" afterPath="$PROJECT_DIR$/broker/src/main/conf/config.properties" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\broker\src\main\java\bronzethistle\broker\App.java" afterPath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/Broker.java" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\broker\src\main\java\bronzethistle\broker\config\HornetQServerConfiguration.java" afterPath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/BrokerConfiguration.java" />
     </list>
     <ignored path="bronzethistle-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,10 +88,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="0" selection-start="6148" selection-end="6148" vertical-scroll-proportion="0.0">
+            <state line="24" column="50" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.7083333">
               <folding />
             </state>
           </provider>
@@ -114,7 +100,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/broker/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="45" selection-start="7699" selection-end="7699" vertical-scroll-proportion="0.0">
+            <state line="157" column="45" selection-start="7702" selection-end="7702" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="tag#pluginManagement#0;tag#build#0;tag#project#0" expanded="false" />
               </folding>
@@ -122,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HornetQServerConfiguration.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java">
+      <file leaf-file-name="BrokerConfiguration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/BrokerConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="64" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0">
+            <state line="43" column="0" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,11 +119,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/App.java">
+      <file leaf-file-name="Broker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="86" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.42273533">
-              <folding />
+            <state line="15" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -173,8 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/entitycontainer/src/main/conf/log4j.xml" />
-        <option value="$PROJECT_DIR$/scheduler/src/main/conf/log4j.xml" />
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/SchedulerException.java" />
         <option value="$PROJECT_DIR$/scheduler/src/main/conf/bronzethistle-scheduler.properties" />
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/App.java" />
@@ -185,8 +171,12 @@
         <option value="$PROJECT_DIR$/broker/src/izpack/userInputSpec.xml" />
         <option value="$PROJECT_DIR$/broker/src/main/conf/log4j.xml" />
         <option value="$PROJECT_DIR$/broker/src/main/script/installer/install.sh" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/broker/pom.xml" />
+        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/HornetQServerConfiguration.java" />
+        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/App.java" />
+        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/Broker.java" />
+        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/BrokerConfiguration.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -384,14 +374,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="script" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="installer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -420,40 +402,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="broker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bronzethistle-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -652,10 +600,10 @@
       <method />
     </configuration>
     <configuration default="false" name="broker" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="bronzethistle.broker.App" />
+      <option name="MAIN_CLASS_NAME" value="bronzethistle.broker.Broker" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="PROGRAM_PARAMETERS" value="-h D:\github\BronzeThistle\src\broker\src\main" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/broker" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -701,7 +649,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -716,7 +664,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24599786" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38839287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -833,13 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/broker/src/main/conf/bronzethistle-broker.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/broker/src/main/script/installer/install.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="10" selection-start="541" selection-end="541" vertical-scroll-proportion="0.35132033">
@@ -861,34 +802,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="0" selection-start="6148" selection-end="6148" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/broker/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="45" selection-start="7699" selection-end="7699" vertical-scroll-proportion="0.0">
+        <state line="157" column="45" selection-start="7702" selection-end="7702" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="tag#pluginManagement#0;tag#build#0;tag#project#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="64" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0">
+        <state line="15" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/App.java">
+    <entry file="file://$PROJECT_DIR$/broker/src/main/conf/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="86" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.42273533">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/BrokerConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="50" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.7083333">
           <folding />
         </state>
       </provider>
