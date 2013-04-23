@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<userInput>
+    <!-- Install -->
+    <panel order="0">
+        <field type="title" txt="Installation Configuration"/>
+
+        <field type="text" variable="INSTALL_PATH">
+            <spec txt="Installation Directory" set="/usr/local/bronzethistle/%{project.artifactId}"/>
+        </field>
+        
+        <field type="text" variable="MINIMUM_HEAP_SIZE">
+            <spec txt="Minimum Heap Size" set="512m"/>
+        </field>
+        
+        <field type="text" variable="MAXIMUM_HEAP_SIZE">
+            <spec txt="Maximum Heap Size" set="512m"/>
+        </field>
+        
+        <field type="text" variable="JMX_REMOTE_PORT">
+            <spec txt="JMX Remote Administration Port" set="2484"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_BINDIP">
+            <spec txt="HornetQ Bind IP" set="127.0.0.1"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_BINDPORT">
+            <spec txt="HornetQ Bind Port" set="5445"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_USERNAME">
+            <spec txt="HornetQ Username" set="guest"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_PASSWORD">
+            <spec txt="HornetQ Password" set="guest"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_BATCHDELAY">
+            <spec txt="HornetQ Batch Delay" set="5"/>
+        </field>
+        
+        <field type="check" variable="HORNETQ_DIRECTDELIVER">
+            <spec txt="HornetQ Direct Deliver" true="true" false="false" set="false"/>
+        </field>
+        
+        <field type="check" variable="HORNETQ_ISBACKUP">
+            <spec txt="Is HornetQ instance a Backup?" true="true" false="false" set="false"/>
+        </field>
+        
+        <field type="check" variable="HORNETQ_ISCLUSTERED">
+            <spec txt="Is HornetQ instance in a Cluster?" true="true" false="false" set="false"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_CLUSTER_USERNAME">
+            <spec txt="HornetQ Cluster Username" set="gcu"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_CLUSTER_PASSWORD">
+            <spec txt="HornetQ Cluster Password" set="password"/>
+        </field>
+        
+        <field type="text" variable="HORNETQ_CLUSTER">
+            <spec txt="HornetQ Cluster Definition [hostname:port,...]" set=""/>
+        </field>
+        
+        <field type="check" variable="HORNETQ_LOGGINGINTERCEPTOR_ENABLED">
+            <spec txt="Enable HornetQ Debug Logging?" true="true" false="false" set="false"/>
+        </field>
+        
+        <field type="text" variable="STATSERVER_BINDIP">
+            <spec txt="Stats Server Bind IP" set="127.0.0.1"/>
+        </field>
+        
+        <field type="text" variable="STATSERVER_BINDPORT">
+            <spec txt="Stats Server Bind Port" set="8445"/>
+        </field>
+    </panel>
+</userInput>

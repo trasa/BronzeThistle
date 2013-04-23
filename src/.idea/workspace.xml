@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7358598d-f851-4e24-985c-c2d2b7011844" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__com_google_guava_guava_r09.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/izpack/install.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/izpack/userInputSpec.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/assembly/bundle.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/conf/logback.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/broker/src/main/script/installer/install.sh" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__cglib_cglib_nodep_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aop_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_asm_3_0_5_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_beans_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_3_0_5_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_support_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_expression_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_instrument_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_test_3_0_5_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_test_3_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\broker\src\main\conf\log4j.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\github\BronzeThistle\src\broker\src\main\resources\console-log4j.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/broker.iml" afterPath="$PROJECT_DIR$/broker/broker.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/pom.xml" afterPath="$PROJECT_DIR$/broker/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" afterPath="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bronzethistle-parent.iml" afterPath="$PROJECT_DIR$/bronzethistle-parent.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/client.iml" afterPath="$PROJECT_DIR$/client/client.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" afterPath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" />
@@ -13,6 +35,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scheduler/scheduler.iml" afterPath="$PROJECT_DIR$/scheduler/scheduler.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zoneserver/zoneserver.iml" afterPath="$PROJECT_DIR$/zoneserver/zoneserver.iml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aop_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_asm_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aspects_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_aspects_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_beans_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_context_support_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_core_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_core_3_1_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_expression_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="D:\github\BronzeThistle\src\.idea\libraries\Maven__org_springframework_spring_instrument_3_0_5_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_instrument_3_1_3_RELEASE.xml" />
     </list>
     <ignored path="bronzethistle-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,28 +102,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MessageType.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/messages/src/main/java/bronzethistle/messages/client/MessageType.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="34" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+            <state line="168" column="0" selection-start="6148" selection-end="6148" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/broker/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="56" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+            <state line="157" column="45" selection-start="7699" selection-end="7699" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="tag#pluginManagement#0;tag#build#0;tag#project#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HornetQServerConfiguration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="64" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="86" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.42273533">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="encodings.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+      <file leaf-file-name="ExampleMessageInterceptor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/ExampleMessageInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="2" column="27" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zoneserver/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="8" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" />
         <option value="$PROJECT_DIR$/entitycontainer/src/main/conf/log4j.xml" />
         <option value="$PROJECT_DIR$/scheduler/src/main/conf/log4j.xml" />
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/SchedulerException.java" />
@@ -118,7 +180,13 @@
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/App.java" />
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/config/SchedulerConfiguration.java" />
         <option value="$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/ExampleJob.java" />
+        <option value="$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java" />
+        <option value="$PROJECT_DIR$/broker/src/izpack/install.xml" />
+        <option value="$PROJECT_DIR$/broker/src/izpack/userInputSpec.xml" />
+        <option value="$PROJECT_DIR$/broker/src/main/conf/log4j.xml" />
+        <option value="$PROJECT_DIR$/broker/src/main/script/installer/install.sh" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/broker/pom.xml" />
       </list>
     </option>
   </component>
@@ -229,7 +297,237 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="script" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="installer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assembly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bronzethistle-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="izpack" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,10 +555,12 @@
       <recent name="bronzethistle.scheduler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\BronzeThistle\src\broker\src\main" />
+      <recent name="D:\github\BronzeThistle\src\broker\src\izpack" />
       <recent name="D:\github\BronzeThistle\src\scheduler\src\main\conf" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Scheduler">
+  <component name="RunManager" selected="Application.broker">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -351,8 +651,25 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="broker" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="bronzethistle.broker.App" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="broker" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Scheduler" />
+      <item index="1" class="java.lang.String" itemvalue="Application.broker" />
     </list>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
@@ -369,6 +686,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7358598d-f851-4e24-985c-c2d2b7011844" name="Default" comment="" />
@@ -389,12 +711,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24599786" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38839287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -462,94 +784,111 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE-sources.jar!/org/springframework/scheduling/annotation/Scheduled.java">
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/bronzethistle/client/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="18" selection-start="2436" selection-end="2445" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="4146" selection-end="4146" vertical-scroll-proportion="0.39253998" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/bronzethistle/client/config/ProtocolConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="387" selection-end="387" vertical-scroll-proportion="0.14756945" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/config/SchedulerConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="243" selection-end="243" vertical-scroll-proportion="0.265625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="331" selection-end="331" vertical-scroll-proportion="0.14756945" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/SchedulerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="29" selection-start="202" selection-end="202" vertical-scroll-proportion="0.2361111" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/src/main/conf/bronzethistle-scheduler.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zoneserver/src/test/java/bronzethistle/zoneserver/handlers/client/LoginHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="34" selection-start="946" selection-end="980" vertical-scroll-proportion="0.019517796" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zoneserver/src/test/java/bronzethistle/zoneserver/dao/ZoneDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="260" selection-end="260" vertical-scroll-proportion="0.09758898" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/src/main/java/bronzethistle/scheduler/ExampleJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="46" selection-start="919" selection-end="919" vertical-scroll-proportion="0.33180252" />
+        <state line="66" column="92" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.6642984">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zoneserver/src/main/java/bronzethistle/zoneserver/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="155" selection-end="155" vertical-scroll-proportion="0.1811723">
+        <state line="6" column="0" selection-start="155" selection-end="155" vertical-scroll-proportion="-4.16341">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zoneserver/src/main/java/bronzethistle/zoneserver/config/HornetQClientConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/client/src/main/conf/bronzethistle-client.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="28" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.35069445">
+        <state line="7" column="73" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entitycontainer/pom.xml">
+    <entry file="file://$PROJECT_DIR$/broker/src/izpack/install.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="45" selection-start="679" selection-end="679" vertical-scroll-proportion="0.5607639">
+        <state line="5" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messages/src/main/java/bronzethistle/messages/client/MessageType.java">
+    <entry file="file://$PROJECT_DIR$/broker/src/izpack/userInputSpec.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="34" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+        <state line="71" column="73" selection-start="2786" selection-end="2786" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/assembly/bundle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="91" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/conf/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/conf/bronzethistle-broker.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/script/installer/install.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="10" selection-start="541" selection-end="541" vertical-scroll-proportion="0.35132033">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zoneserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="8" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/ExampleMessageInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="27" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="56" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+        <state line="168" column="0" selection-start="6148" selection-end="6148" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
+    <entry file="file://$PROJECT_DIR$/broker/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="157" column="45" selection-start="7699" selection-end="7699" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#pluginManagement#0;tag#build#0;tag#project#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/config/HornetQServerConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="64" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/bronzethistle/broker/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="86" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.42273533">
           <folding />
         </state>
       </provider>
