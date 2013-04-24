@@ -15,6 +15,7 @@
         <module>broker</module>
         <module>entitycontainer</module>
         <module>scheduler</module>
+        <module>edgeserver</module>
     </modules>
 
     <properties>

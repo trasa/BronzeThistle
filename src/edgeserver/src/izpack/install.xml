@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<installation version="1.0">
+    <info>
+        <appname>${project.artifactId}</appname>
+        <appversion>${project.version}</appversion>
+        <javaversion>1.6</javaversion>
+    </info>
+
+    <guiprefs width="640" height="480" resizable="yes">
+        <modifier key="langDisplayType" value="native"/>
+        <modifier key="useHeadingPanel" value="yes"/>
+        <modifier key="headingLineCount" value="1"/>
+        <modifier key="headingFontSize" value="1.3"/>
+        <modifier key="headingBackgroundColor" value="0x00ffffff"/>
+        <modifier key="headingPanelCounter" value="text"/>
+        <modifier key="headingPanelCounterPos" value="inHeading"/>
+    </guiprefs>
+
+    <resources>
+        <res id="userInputSpec.xml" src="userInputSpec.xml"/>
+    </resources>
+
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+
+    <panels>
+        <panel classname="UserInputPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+
+    <packs>
+        <pack name="Unzip Application" required="yes">
+            <description>Unzip the application</description>
+            <file src="${project.artifactId}-${project.version}-bundle.zip" unpack="true" targetdir="$INSTALL_PATH"/>
+            <updatecheck>
+                <exclude name="logs/**"/>
+            </updatecheck>
+        </pack>
+
+        <pack name="Install Scripts" required="yes">
+            <description>Run post-install script</description>
+
+            <!-- Replace the install path into this file. -->
+            <parsable targetfile="$INSTALL_PATH/conf/wrapper.conf"/>
+            <parsable targetfile="$INSTALL_PATH/conf/config.properties"/>
+            <parsable targetfile="$INSTALL_PATH/installer/install.sh" />
+
+            <executable targetfile="$INSTALL_PATH/installer/install.sh" stage="postinstall" keep="true">
+                <os family="unix"/>
+            </executable>
+        </pack>
+    </packs>
+</installation>

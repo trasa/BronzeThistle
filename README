@@ -24,5 +24,12 @@ Components:
 
 * zoneserver
     provides socket services to the client and manages the 'room'
-    details for the 'game'.
+    details for the 'game'.   
+    NOTE: the client socket connection will be moved to an edge
+    server implementation; zoneserver will become strictly 
+    message-based.
+
+* edgeserver
+    Handles socket-based communication between clients and server
+    infrastructure.
 

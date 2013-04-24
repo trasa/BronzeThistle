@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/broker/broker.iml" filepath="$PROJECT_DIR$/broker/broker.iml" />
       <module fileurl="file://$PROJECT_DIR$/bronzethistle-parent.iml" filepath="$PROJECT_DIR$/bronzethistle-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edgeserver/edgeserver.iml" filepath="$PROJECT_DIR$/edgeserver/edgeserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/entitycontainer/entitycontainer.iml" filepath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" />
       <module fileurl="file://$PROJECT_DIR$/messages/messages.iml" filepath="$PROJECT_DIR$/messages/messages.iml" />
       <module fileurl="file://$PROJECT_DIR$/scheduler/scheduler.iml" filepath="$PROJECT_DIR$/scheduler/scheduler.iml" />
