@@ -6,12 +6,12 @@
     <parent>
         <artifactId>bronzethistle-parent</artifactId>
         <groupId>bronzethistle</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>bronzethistle</groupId>
     <artifactId>messages</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>messages</name>
     <packaging>jar</packaging>
 
