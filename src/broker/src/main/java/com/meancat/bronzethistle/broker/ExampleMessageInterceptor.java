@@ -1,4 +1,4 @@
-package bronzethistle.broker;
+package com.meancat.bronzethistle.broker;
 
 import org.hornetq.api.core.HornetQException;
 import org.hornetq.api.core.Interceptor;

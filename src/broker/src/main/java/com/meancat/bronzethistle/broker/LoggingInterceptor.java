@@ -1,4 +1,4 @@
-package bronzethistle.broker;
+package com.meancat.bronzethistle.broker;
 
 import java.util.Arrays;
 import java.util.Map;

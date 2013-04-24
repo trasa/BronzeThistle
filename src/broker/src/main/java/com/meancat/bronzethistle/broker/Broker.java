@@ -1,4 +1,4 @@
-package bronzethistle.broker;
+package com.meancat.bronzethistle.broker;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;

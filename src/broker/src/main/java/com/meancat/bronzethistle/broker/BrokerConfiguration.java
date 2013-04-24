@@ -1,4 +1,4 @@
-package bronzethistle.broker;
+package com.meancat.bronzethistle.broker;
 
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.api.core.client.ClientSession;
