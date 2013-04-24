@@ -23,8 +23,6 @@ public class Broker {
         private String home;
     }
 
-    private static AnnotationConfigApplicationContext applicationContext;
-
     public static void main(String[] args) throws InterruptedException {
         ApplicationArguments appArgs = new ApplicationArguments();
         CmdLineParser commandLineParser = new CmdLineParser(appArgs);
@@ -50,7 +48,7 @@ public class Broker {
         // printing if theres a problem:
         StatusPrinter.printInCaseOfErrorsOrWarnings(loggerContext);
         System.out.println("Starting Broker");
-        applicationContext = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(BrokerConfiguration.class);
         applicationContext.refresh();
         System.out.println("Started Broker");

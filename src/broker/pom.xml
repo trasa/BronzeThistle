@@ -149,7 +149,7 @@
                     <daemons>
                         <daemon>
                             <id>${project.artifactId}</id>
-                            <mainClass>bronzethistle.broker.Broker</mainClass>
+                            <mainClass>com.meancat.bronzethistle.broker.Broker</mainClass>
                             <commandLineArguments>
                                 <commandLineArgument>--home</commandLineArgument>
                                 <commandLineArgument>$INSTALL_PATH</commandLineArgument>
