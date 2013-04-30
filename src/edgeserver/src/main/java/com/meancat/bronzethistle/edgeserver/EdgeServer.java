@@ -4,12 +4,19 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 import ch.qos.logback.core.util.StatusPrinter;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 import org.springframework.util.SystemPropertyUtils;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import java.io.File;
 
@@ -52,11 +59,15 @@ public class EdgeServer {
 
         StatusPrinter.printInCaseOfErrorsOrWarnings(context);
 
-        // start spring
+        // start spring and jetty
         System.out.println("Starting " + EdgeServer.getDetails());
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(EdgeServerConfiguration.class);
+        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
+        applicationContext.register(EdgeServerConfiguration.class);
+        applicationContext.refresh();
+
         System.out.println("Started " + EdgeServer.getDetails());
-        while (applicationContext.isActive()) {
+
+        while(applicationContext.isActive()) {
             Thread.sleep(5000);
         }
         System.out.println("Stopped " + EdgeServer.getDetails());

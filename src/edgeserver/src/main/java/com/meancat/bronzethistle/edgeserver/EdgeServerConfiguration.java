@@ -1,18 +1,16 @@
 package com.meancat.bronzethistle.edgeserver;
 
-import com.meancat.bronzethistle.edgeserver.websocket.WebSocketServerHandler;
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.buffer.ChannelBufferFactory;
-import org.jboss.netty.buffer.HeapChannelBufferFactory;
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-import org.jboss.netty.handler.codec.http.HttpChunkAggregator;
-import org.jboss.netty.handler.codec.http.HttpRequestDecoder;
-import org.jboss.netty.handler.codec.http.HttpResponseEncoder;
-import org.jboss.netty.handler.ssl.SslHandler;
+
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.server.handler.DefaultHandler;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
+import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,25 +19,27 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.util.StringUtils;
 import org.springframework.util.SystemPropertyUtils;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.AbstractRefreshableWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.net.InetSocketAddress;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
+import org.springframework.core.io.Resource;
+
+import java.io.IOException;
 
 @Configuration
 @ComponentScan(basePackageClasses = {EdgeServerConfiguration.class})
-public class EdgeServerConfiguration {
+public class EdgeServerConfiguration extends WebMvcConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(EdgeServerConfiguration.class);
 
-    @Value("${server.externalHostname}")
-    public String serverHostname;
+    @Value("${jetty.port}")
+    public int jettyPort;
 
-    @Value("${netty.bindPort}")
-    private int socketBindPort;
+    @Value("${http.contentPath}")
+    public Resource contentPath;
 
     @Bean
     public static PropertyPlaceholderConfigurer propertyConfigurer() {
@@ -52,64 +52,26 @@ public class EdgeServerConfiguration {
         return bean;
     }
 
-    @Bean
-    public Map<String, String> serviceStateProperties() {
-        ConcurrentHashMap<String, String> bean = new ConcurrentHashMap<String, String>();
-        bean.put("hostname", serverHostname);
-        bean.put("port", socketBindPort + "");
-        return bean;
-    }
+    @Bean(initMethod = "start", destroyMethod = "stop")
+    public Server server(AbstractRefreshableWebApplicationContext applicationContext, SocketServlet socketServlet) throws IOException {
+        Server server = new Server();
 
+        Connector connector = new SelectChannelConnector();
+        connector.setPort(jettyPort);
+        server.addConnector(connector);
 
-    @Bean
-    public ChannelFactory socketChannelFactory() {
-        return new NioServerSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool());
-    }
+        server.setSendServerVersion(false);
 
-    @Bean
-    public ChannelPipelineFactory socketChannelPipelineFactory(final WebSocketServerHandler handler, final WebSocketServerSerDe serDe) {
-        ChannelPipelineFactory bean = new ChannelPipelineFactory() {
-            public ChannelPipeline getPipeline() {
-                ChannelPipeline pipeline = Channels.pipeline();
+        WebAppContext context = new WebAppContext(contentPath.getFile().getAbsolutePath(), "/");
+        context.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE,
+                applicationContext);
 
-                pipeline.addLast("decoder", new HttpRequestDecoder());
-                pipeline.addLast("aggregator", new HttpChunkAggregator(65536));
-                pipeline.addLast("encoder", new HttpResponseEncoder());
-                pipeline.addLast("serDe", serDe);
-                pipeline.addLast("handler", handler);
+        context.addServlet(new ServletHolder(new DispatcherServlet(applicationContext)), "/*");
+        context.addServlet(new ServletHolder(socketServlet), "/ws/*");
 
-                return pipeline;
-            }
-        };
+        server.setHandler(context);
+        applicationContext.setServletContext(context.getServletContext());
 
-        return bean;
-    }
-
-
-    @Bean
-    public ChannelBufferFactory socketChannelBufferFactory() {
-        return new HeapChannelBufferFactory();
-    }
-
-
-    @Bean(destroyMethod="releaseExternalResources")
-    public ServerBootstrap socketServerBootstrap(final WebSocketServerHandler handler, final WebSocketServerSerDe serDe) {
-        ServerBootstrap bean = new ServerBootstrap(socketChannelFactory());
-
-        bean.setPipelineFactory(socketChannelPipelineFactory(handler, serDe));
-
-        bean.setOption("child.tcpNoDelay", true);
-        bean.setOption("child.keepAlive", true);
-        bean.setOption("child.bufferFactory", socketChannelBufferFactory());
-
-        InetSocketAddress bindAddress = StringUtils.hasText(serverHostname) ?
-                new InetSocketAddress(serverHostname, socketBindPort) :
-                new InetSocketAddress(socketBindPort);
-
-        bean.bind(bindAddress);
-
-        logger.info("Socket server listening on [{}]", bindAddress);
-
-        return bean;
+        return server;
     }
 }

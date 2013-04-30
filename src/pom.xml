@@ -24,6 +24,7 @@
         <slf4j.version>1.6.6</slf4j.version>
         <hornetq.version>2.2.14.Final</hornetq.version>
         <netty.version>3.5.3.Final</netty.version>
+        <jetty.version>8.1.10.v20130312</jetty.version>
         <args4j.version>2.0.12</args4j.version>
         <guava.version>13.0.1</guava.version>
         <logback.version>1.0.6</logback.version>
