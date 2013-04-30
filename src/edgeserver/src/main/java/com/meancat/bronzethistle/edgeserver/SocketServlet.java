@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -20,6 +21,7 @@ public class SocketServlet extends WebSocketServlet {
 
     @Override
     public WebSocket doWebSocketConnect(HttpServletRequest httpServletRequest, String protocol) {
+        logger.info("connect with {}", protocol);
         return new EdgeSocket();
     }
 
@@ -31,10 +33,16 @@ public class SocketServlet extends WebSocketServlet {
         public void onMessage(String data) {
             // TODO
             logger.info("received: {}", data);
+            try {
+                connection.sendMessage(data);
+            } catch (IOException e) {
+                logger.warn("Failed to send message", e);
+            }
 
         }
         @Override
         public void onOpen(Connection connection) {
+            logger.info("on open");
             sockets.add(this);
             this.connection = connection;
 
@@ -42,6 +50,7 @@ public class SocketServlet extends WebSocketServlet {
 
         @Override
         public void onClose(int closeCode, String message) {
+            logger.info("on close");
             sockets.remove(this);
         }
     }

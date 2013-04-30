@@ -66,7 +66,7 @@ public class EdgeServerConfiguration extends WebMvcConfigurerAdapter {
         context.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE,
                 applicationContext);
 
-        context.addServlet(new ServletHolder(new DispatcherServlet(applicationContext)), "/*");
+        context.addServlet(new ServletHolder(new DispatcherServlet(applicationContext)), "/mvc/*");
         context.addServlet(new ServletHolder(socketServlet), "/ws/*");
 
         server.setHandler(context);
