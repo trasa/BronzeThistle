@@ -15,9 +15,7 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-// DependsOn is to avoid a circular dependency on Channel (via ClientChannelHandler and LoginResponseMessageHandler)
 @Component
-@DependsOn("clientChannelHandler")
 public class MainForm  {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(MainForm.class);
@@ -31,10 +29,6 @@ public class MainForm  {
     public Player getPlayer() { return player; }
     public void setPlayer(Player p) { player = p; }
 
-
-    @Autowired
-    protected Channel channel;
-
     public MainForm() {
 
         inputText.addKeyListener(new KeyAdapter() {
@@ -43,7 +37,7 @@ public class MainForm  {
                 if (e.getKeyChar() == '\n') {
                     try {
                         Message msg = new MessageParser(inputText.getText()).parse();
-                        channel.write(msg);
+//                        channel.write(msg);
                         inputText.setText("");
                     } catch (MessageParserException ex) {
                         inputText.setText(ex.toString());

@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.util.SystemPropertyUtils;
@@ -29,6 +30,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.hornetq.core.remoting.impl.netty.TransportConstants.PORT_PROP_NAME;
 
 @Configuration
+@ComponentScan(basePackageClasses = {BrokerConfiguration.class})
 public class BrokerConfiguration {
     private static final Logger log = LoggerFactory.getLogger(BrokerConfiguration.class);
 
