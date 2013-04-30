@@ -1,6 +1,6 @@
-package bronzethistle.client.config;
+package com.meancat.bronzethistle.client.config;
 
-import bronzethistle.client.handlers.ClientMessageHandler;
+import com.meancat.bronzethistle.client.handlers.ClientMessageHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

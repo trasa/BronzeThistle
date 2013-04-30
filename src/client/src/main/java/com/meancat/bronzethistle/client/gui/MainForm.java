@@ -1,6 +1,5 @@
-package bronzethistle.client.gui;
+package com.meancat.bronzethistle.client.gui;
 
-import bronzethistle.client.protocol.ClientChannelHandler;
 import bronzethistle.messages.MessageParser;
 import bronzethistle.messages.MessageParserException;
 import bronzethistle.messages.client.Message;

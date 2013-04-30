@@ -1,4 +1,4 @@
-package bronzethistle.client.handlers;
+package com.meancat.bronzethistle.client.handlers;
 
 
 public interface ClientMessageHandler<T> {

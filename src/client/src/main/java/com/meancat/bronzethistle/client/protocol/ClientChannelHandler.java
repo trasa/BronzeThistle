@@ -1,7 +1,7 @@
-package bronzethistle.client.protocol;
+package com.meancat.bronzethistle.client.protocol;
 
-import bronzethistle.client.gui.MainForm;
-import bronzethistle.client.handlers.ClientMessageHandler;
+import com.meancat.bronzethistle.client.gui.MainForm;
+import com.meancat.bronzethistle.client.handlers.ClientMessageHandler;
 import bronzethistle.messages.client.Message;
 import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;

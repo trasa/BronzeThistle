@@ -1,6 +1,6 @@
-package bronzethistle.client.config;
+package com.meancat.bronzethistle.client.config;
 
-import bronzethistle.client.protocol.ClientChannelHandler;
+import com.meancat.bronzethistle.client.protocol.ClientChannelHandler;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;

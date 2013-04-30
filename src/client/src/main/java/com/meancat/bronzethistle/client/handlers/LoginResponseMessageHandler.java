@@ -1,4 +1,4 @@
-package bronzethistle.client.handlers;
+package com.meancat.bronzethistle.client.handlers;
 
 import bronzethistle.messages.client.LoginResponseMessage;
 import bronzethistle.messages.client.RequestEntityMessage;
