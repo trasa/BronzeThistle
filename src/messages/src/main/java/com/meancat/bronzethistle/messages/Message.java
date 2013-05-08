@@ -10,6 +10,10 @@ public class Message {
 
     public Object payload;
 
+    public Class<?> getPayloadType() {
+        return payload.getClass();
+    }
+
     /**
      * Is this message directed at the Edge server directly?
      *
