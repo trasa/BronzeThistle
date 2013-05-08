@@ -45,9 +45,8 @@ public class EdgeMessageHandlerRegistry {
 
     public Set<HandlerMethod> findHandlers(Message message) {
         Set<HandlerMethod> methods = handlerMethods.get(message.getPayloadType());
-        if (methods == null) {
+        if (methods.isEmpty()) {
             logger.warn("There are no handlerMethods registered for message of type {}!", message.getPayloadType());
-            methods = new HashSet<HandlerMethod>();
         }
         return methods;
     }

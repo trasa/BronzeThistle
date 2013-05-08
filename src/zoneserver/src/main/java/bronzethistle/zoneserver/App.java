@@ -17,7 +17,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.util.Log4jConfigurer;
 import org.springframework.util.SystemPropertyUtils;
 
 import java.io.StringWriter;
@@ -83,14 +82,14 @@ public class App {
 
         if (logToConsole) {
             try {
-                Log4jConfigurer.initLogging(CONSOLE_LOGGER_CONFIG);
+//                Log4jConfigurer.initLogging(CONSOLE_LOGGER_CONFIG);
                 log.info("Logging to console...");
             } catch (Throwable t) {
                 throw new RuntimeException("Unable to initialize logging", t);
             }
         } else {
             try {
-                Log4jConfigurer.initLogging(FILE_LOGGER_CONFIG);
+//                Log4jConfigurer.initLogging(FILE_LOGGER_CONFIG);
             } catch (Throwable t) {
                 throw new RuntimeException("Unable to initialize logging", t);
             }

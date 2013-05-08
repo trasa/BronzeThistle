@@ -20,7 +20,6 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.util.Log4jConfigurer;
 import org.springframework.util.SystemPropertyUtils;
 
 import javax.swing.*;

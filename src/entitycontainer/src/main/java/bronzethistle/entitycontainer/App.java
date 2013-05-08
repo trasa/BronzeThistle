@@ -19,7 +19,6 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.util.Log4jConfigurer;
 import org.springframework.util.SystemPropertyUtils;
 
 import java.io.BufferedReader;
@@ -60,7 +59,7 @@ public class App {
 
     private void start() throws Exception {
         System.setProperty("bronzethistle-entitycontainer.home", homePath);
-        Log4jConfigurer.initLogging("file:${bronzethistle-entitycontainer.home}/conf/log4j.xml");
+//        Log4jConfigurer.initLogging("file:${bronzethistle-entitycontainer.home}/conf/log4j.xml");
 
         AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         ((AnnotationConfigApplicationContext) applicationContext).scan(APPLICATION_PACKAGES);
