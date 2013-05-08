@@ -1,6 +1,7 @@
 package com.meancat.bronzethistle.edgeserver;
 
 
+import com.meancat.bronzethistle.messages.MessagesConfiguration;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.context.WebApplicationContext;
@@ -31,6 +33,7 @@ import java.io.IOException;
 
 @Configuration
 @ComponentScan(basePackageClasses = {EdgeServerConfiguration.class})
+@Import({MessagesConfiguration.class})
 public class EdgeServerConfiguration extends WebMvcConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(EdgeServerConfiguration.class);
