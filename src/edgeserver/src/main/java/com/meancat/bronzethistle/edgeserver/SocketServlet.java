@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@WebServlet(urlPatterns="/ws",asyncSupported = true) // note that currently this isn't doing anything...
 @Component
 public class SocketServlet extends WebSocketServlet {
     private static final Logger logger = LoggerFactory.getLogger(SocketServlet.class);
