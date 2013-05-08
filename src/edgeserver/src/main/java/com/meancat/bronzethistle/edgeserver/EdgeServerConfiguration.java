@@ -12,6 +12,14 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.reflections.Reflections;
+import org.reflections.scanners.MethodAnnotationsScanner;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.scanners.TypeAnnotationsScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -76,5 +84,15 @@ public class EdgeServerConfiguration extends WebMvcConfigurerAdapter {
         applicationContext.setServletContext(context.getServletContext());
 
         return server;
+    }
+
+    @Bean
+    public Reflections reflections() {
+        return new Reflections(new ConfigurationBuilder()
+        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix("com.meancat.bronzethistle.edgeserver")))
+                .setUrls(ClasspathHelper.forPackage("com.meancat.bronzethistle.edgeserver"))
+                .setScanners(new SubTypesScanner(),
+                        new TypeAnnotationsScanner(),
+                        new MethodAnnotationsScanner()));
     }
 }
