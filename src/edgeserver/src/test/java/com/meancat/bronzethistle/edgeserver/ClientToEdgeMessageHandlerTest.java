@@ -1,5 +1,6 @@
 package com.meancat.bronzethistle.edgeserver;
 
+import com.meancat.bronzethistle.edgeserver.handlers.EdgeMessageHandlerRegistry;
 import com.meancat.bronzethistle.messages.Message;
 import com.meancat.bronzethistle.messages.edge.ServerTimeRequest;
 import org.junit.Assert;
@@ -13,23 +14,21 @@ public class ClientToEdgeMessageHandlerTest {
     private ClientToEdgeMessageHandler handler;
 
     @Mock
-    private Object edgeMessageHandlers;
+    private EdgeMessageHandlerRegistry mockEdgeMessageHandlerRegistry;
 
     @Before
     public void setUp() {
         handler = new ClientToEdgeMessageHandler();
-//        handler.edgeMessageHandlers = edgeMessageHandlers;
+        handler.edgeMessageHandlerRegistry = mockEdgeMessageHandlerRegistry;
     }
 
     @Test
-    @Ignore
     public void handleEdgePayload() {
         Message m = new Message();
         m.payload = new ServerTimeRequest();
 
-        handler.handle(m);
+        handler.handleEdgeMessage(m);
 
-        Assert.fail("handlers aren't implemented yet.");
     }
 
     @Test

@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -61,6 +62,10 @@ public class EdgeMessageHandlerRegistry {
             }
             this.instance = instance;
             this.method = method;
+        }
+
+        public void invoke(Message message) throws Exception {
+            method.invoke(instance, method, message);
         }
     }
 }
