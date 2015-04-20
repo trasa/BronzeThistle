@@ -25,6 +25,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="broker" />
+        <module name="chatclient" />
         <module name="client" />
         <module name="edgeserver" />
         <module name="entitycontainer" />
@@ -36,6 +37,7 @@
     <bytecodeTargetLevel>
       <module name="broker" target="1.7" />
       <module name="bronzethistle-parent" target="1.7" />
+      <module name="chatclient" target="1.7" />
       <module name="client" target="1.7" />
       <module name="edgeserver" target="1.7" />
       <module name="entitycontainer" target="1.7" />

@@ -16,6 +16,7 @@
         <module>entitycontainer</module>
         <module>scheduler</module>
         <module>edgeserver</module>
+        <module>chatclient</module>
     </modules>
 
     <properties>

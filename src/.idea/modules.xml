@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/broker/broker.iml" filepath="$PROJECT_DIR$/broker/broker.iml" />
       <module fileurl="file://$PROJECT_DIR$/bronzethistle-parent.iml" filepath="$PROJECT_DIR$/bronzethistle-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatclient/chatclient.iml" filepath="$PROJECT_DIR$/chatclient/chatclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/edgeserver/edgeserver.iml" filepath="$PROJECT_DIR$/edgeserver/edgeserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/entitycontainer/entitycontainer.iml" filepath="$PROJECT_DIR$/entitycontainer/entitycontainer.iml" />
@@ -13,4 +14,3 @@
     </modules>
   </component>
 </project>
-
