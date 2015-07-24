@@ -9,14 +9,7 @@
     <name>Bronze Thistle</name>
 
     <modules>
-        <module>zoneserver</module>
-        <module>client</module>
-        <module>messages</module>
-        <module>broker</module>
-        <module>entitycontainer</module>
-        <module>scheduler</module>
         <module>edgeserver</module>
-        <module>chatclient</module>
     </modules>
 
     <properties>

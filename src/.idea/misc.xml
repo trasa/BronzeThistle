@@ -15,6 +15,17 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/broker/pom.xml" />
+        <option value="$PROJECT_DIR$/chatclient/pom.xml" />
+        <option value="$PROJECT_DIR$/client/pom.xml" />
+        <option value="$PROJECT_DIR$/entitycontainer/pom.xml" />
+        <option value="$PROJECT_DIR$/messages/pom.xml" />
+        <option value="$PROJECT_DIR$/scheduler/pom.xml" />
+        <option value="$PROJECT_DIR$/zoneserver/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
