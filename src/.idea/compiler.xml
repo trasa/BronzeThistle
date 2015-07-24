@@ -24,7 +24,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="edgeserver" />
       </profile>
       <profile default="false" name="Annotation profile for chatclient" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -68,15 +67,31 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Annotation profile for roomserver" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="roomserver" />
+      </profile>
+      <profile default="false" name="Annotation profile for bronzethistle-shared" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="bronzethistle-shared" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="broker" target="1.7" />
       <module name="bronzethistle-parent" target="1.7" />
+      <module name="bronzethistle-shared" target="1.7" />
       <module name="chatclient" target="1.7" />
       <module name="client" target="1.7" />
       <module name="edgeserver" target="1.7" />
       <module name="entitycontainer" target="1.7" />
       <module name="messages" target="1.7" />
+      <module name="roomserver" target="1.7" />
       <module name="scheduler" target="1.7" />
       <module name="zoneserver" target="1.7" />
     </bytecodeTargetLevel>

@@ -1,0 +1,38 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <property name="GAME_ID" value="bronzethistle" />
+    <property name="SERVICE_ID" value="roomserver" />
+
+    <appender name="MainAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/${GAME_ID}/${SERVICE_ID}.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/${GAME_ID}/${SERVICE_ID}.%d.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 1GB -->
+                <maxFileSize>1GB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="asyncMain" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>1024</queueSize>
+        <appender-ref ref="MainAppender"/>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="asyncMain"/>
+        <!--<appender-ref ref="STDOUT" />-->
+    </root>
+
+</configuration>

@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/broker/pom.xml" />
         <option value="$PROJECT_DIR$/chatclient/pom.xml" />
         <option value="$PROJECT_DIR$/client/pom.xml" />
+        <option value="$PROJECT_DIR$/edgeserver/pom.xml" />
         <option value="$PROJECT_DIR$/entitycontainer/pom.xml" />
         <option value="$PROJECT_DIR$/messages/pom.xml" />
         <option value="$PROJECT_DIR$/scheduler/pom.xml" />

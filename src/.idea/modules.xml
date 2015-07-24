@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bronzethistle-parent.iml" filepath="$PROJECT_DIR$/bronzethistle-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/edgeserver/edgeserver.iml" filepath="$PROJECT_DIR$/edgeserver/edgeserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bronzethistle-shared/bronzethistle-shared.iml" filepath="$PROJECT_DIR$/bronzethistle-shared/bronzethistle-shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/roomserver/roomserver.iml" filepath="$PROJECT_DIR$/roomserver/roomserver.iml" />
     </modules>
   </component>
 </project>

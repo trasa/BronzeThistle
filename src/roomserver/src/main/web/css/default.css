@@ -1,0 +1,113 @@
+#wrapper {
+/*    width:400px; */
+    overflow:hidden;
+    padding:10px;
+}
+
+#content {	/* all content excluding header */
+	postion:relative;
+}
+
+#left-menu-a {
+    float:left;
+    margin: 10px 10px 10px 10px;
+}
+#main-body {
+    margin: 0 0 0 160px;
+}
+
+#footer-a {
+	/*position:absolute;*/
+	bottom: 0;
+    margin: 5px 5px 5px 175px;
+    font-size: small;
+}
+
+div {
+	/* uncomment to see div blocks
+	border: 1px solid #333;
+	*/
+}
+
+.breadcrumb {
+	color: fff799;
+	background-color: #401010;
+	postion: absolute; top: -10px;
+}
+
+body {
+    font-family: Arial;
+    background-color: #FFF8F8;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+h2 {
+    padding: 5px;
+    margin: 0px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #4E5157;
+    color: #E6E6E6;
+    letter-spacing: 1px;
+}
+
+h3 {
+    padding: 5px;
+    margin: 0px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+td {
+	border: 0;
+}
+#uploadFile {
+    width: 510px;
+}
+
+.ui-widget,.ui-widget .ui-widget {
+    font-size: 0.85em !important;
+}
+
+.ui-datatable-odd {
+    background: none repeat scroll 0 0 #F9F9F9;
+}
+
+.ui-datatable-even {
+    background: none repeat scroll 0 0 #EFEFEF;
+}
+
+.ui-datatable-tablewrapper{
+    font-size: 1.1em;
+}
+
+.ui-tabs-panels {
+    background-color: #F0F1F1;
+}
+
+.ui-layout-unit {
+    padding: 15px;
+    border: 0px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

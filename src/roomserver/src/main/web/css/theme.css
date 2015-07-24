@@ -1,0 +1,100 @@
+.glyphicon.glyphicon-refresh {
+    font-size: 20px;
+}
+
+.glyphicon-refresh-animate {
+    font-size: 20px;
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+
+.border-warning {
+    border-color: #eea236;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+/*
+ * navbar-nav > li > div slice picker:
+ * choose the slice that the app is going to be working on.
+ */
+.navbar-nav>li>div {
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.navbar-nav>li>div.slice-picker {
+    color: #777;
+    margin-left: 150px;
+}
+
+.navbar-nav>li>div>input[type=text] {
+    width: 3em;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.upload-text {
+    color: #bbbbbb;
+    font-size: 1.4em;
+    height: 82%;
+    width: 100%;
+    padding-top: 100px;
+    text-align: center;
+}
