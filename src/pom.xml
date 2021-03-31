@@ -35,7 +35,7 @@
         <logback.version>1.1.2</logback.version>
         <logback-extensions.version>0.1.2</logback-extensions.version>
 
-        <guava.version>24.1.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <reflections.version>0.9.8</reflections.version>
 
         <!-- not ready for jetty 9 yet -->
