@@ -35,7 +35,7 @@
         <logback.version>1.2.0</logback.version>
         <logback-extensions.version>0.1.2</logback-extensions.version>
 
-        <guava.version>29.0-jre</guava.version>
+        <guava.version>[30.0-jre,)</guava.version>
         <reflections.version>0.9.8</reflections.version>
 
         <!-- not ready for jetty 9 yet -->
@@ -294,7 +294,7 @@
         <repository>
             <id>central</id>
             <name>Central Repository</name>
-            <url>http://repo1.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
